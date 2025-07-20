@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="312" height="312" fill="none" viewBox="0 0 312 312">
+  <g class="Variant=Export Data">
+    <mask id="b" width="312" height="312" x="0" y="0" class="b" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+      <rect width="312" height="312" fill="#C4C4C4" class="Rectangle 214" rx="40"/>
+    </mask>
+    <g class="Ilustration" filter="url(#a)" mask="url(#b)">
+      <rect width="214" height="200.562" x="26.612" y="87.354" fill="#EEE5FF" stroke="#B18AFF" class="Rectangle 101" rx="23.5" transform="rotate(-15 26.612 87.354)"/>
+      <g class="Group 250">
+        <path stroke="#B18AFF" stroke-width="3" d="m49.57 82.237 22.568-6.047 51.391 191.797-22.567 6.047c-12.003 3.216-24.34-3.907-27.557-15.91L33.66 109.794c-3.216-12.003 3.908-24.34 15.91-27.557Z" class="Rectangle 106"/>
+      </g>
+      <g class="Group 251">
+        <path fill="#D3BDFF" d="m37.906 131.433 47.33-12.683 40.376 150.685-24.148 6.47c-12.803 3.431-25.964-4.167-29.394-16.97L37.906 131.433Z" class="Rectangle 109"/>
+        <path fill="#D3BDFF" d="M32.212 110.182c-3.43-12.803 4.167-25.963 16.97-29.394l161.31-43.222c12.803-3.431 25.963 4.167 29.394 16.97l5.694 21.25-207.674 55.647-5.694-21.251Z" class="Rectangle 107"/>
+        <path stroke="#B18AFF" stroke-width="3" d="m72.27 76.155 82.104-22 51.391 191.797-82.103 22z" class="Rectangle 106"/>
+      </g>
+      <path stroke="#B18AFF" stroke-width="3" d="m49.57 82.237 161.31-43.222c12.003-3.217 24.341 3.906 27.557 15.91l5.415 20.207-204.777 54.87-5.415-20.208c-3.216-12.003 3.908-24.34 15.91-27.557Z" class="Rectangle 102"/>
+      <path stroke="#B18AFF" stroke-width="3" d="m51.648 176.926 204.776-54.87 15.012 56.024L66.66 232.95z" class="Rectangle 107"/>
+      <rect width="212" height="198.562" x="27.837" y="88.061" stroke="#B18AFF" stroke-width="3" class="Rectangle 105" rx="22.5" transform="rotate(-15 27.837 88.06)"/>
+    </g>
+  </g>
+  <defs>
+    <filter id="a" width="297.066" height="287.987" x="-2.612" y="36.742" class="a" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dx="-10" dy="24"/>
+      <feGaussianBlur stdDeviation="12"/>
+      <feColorMatrix values="0 0 0 0 0.496229 0 0 0 0 0.24 0 0 0 0 1 0 0 0 0.08 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_1271_5639"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_1271_5639" result="shape"/>
+    </filter>
+  </defs>
+</svg>
