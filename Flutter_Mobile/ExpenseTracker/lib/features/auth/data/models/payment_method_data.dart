@@ -1,7 +1,6 @@
 import 'package:expensetracker/features/auth/data/models/payment_method_model.dart';
 
 import '../../../../core/constant/image_app.dart';
-import '../../presentation/view/widget/add_new_account.dart';
 
 class PaymentMethodData{
   PaymentMethodData._();

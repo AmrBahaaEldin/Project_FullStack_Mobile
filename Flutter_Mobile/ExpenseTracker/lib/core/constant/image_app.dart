@@ -10,6 +10,12 @@ class ImageApp {
   static const String splashImagePNG = 'assets/png/Splash.png';
   static const String googleSV = 'assets/svg/google.svg';
   static const String successSV = 'assets/svg/success.svg';
+  static const String profile = 'assets/png/profile.jpg';
+  static const String incomeSv = 'assets/svg/income.svg';
+  static const String expensesSv = 'assets/svg/expenses.svg';
+  static const String shoppingSv = 'assets/svg/shopping.svg';
+  static const String foodSv = 'assets/svg/food.svg';
+  static const String subscriptionsSv = 'assets/svg/subscription.svg';
 
   static const String bankOfAmericaSV =
       'assets/svg/payment__method/Bank Of America.svg';

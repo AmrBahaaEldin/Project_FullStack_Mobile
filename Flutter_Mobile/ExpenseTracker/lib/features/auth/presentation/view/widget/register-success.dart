@@ -23,7 +23,7 @@ class _RegisterSuccessState extends State<RegisterSuccess> {
   Future<void> nextPage() async {
     await Future.delayed(const Duration(seconds: 2), () {
       if (!mounted) return; //
-      GoRouter.of(context).push(RouterApp.home);
+      GoRouter.of(context).go(RouterApp.mainNavigation);
     });
   }
 

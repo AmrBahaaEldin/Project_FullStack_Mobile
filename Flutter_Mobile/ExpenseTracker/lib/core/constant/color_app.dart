@@ -43,11 +43,11 @@ class ColorApp {
 
   // Yellow shades
 
-  static const Color yellow20 = Color(0xFFFFFFCC);
-  static const Color yellow40 = Color(0xFFFFFF99);
-  static const Color yellow60 = Color(0xFFFFFF66);
-  static const Color yellow80 = Color(0xFFFFFF33);
-  static const Color yellow100 = Color(0xFFFFFF00);
+  static const Color yellow20 = Color(0xFFFCEED4);
+  static const Color yellow40 = Color(0xFFFCDDA1);
+  static const Color yellow60 = Color(0xFFFCCC6F);
+  static const Color yellow80 = Color(0xFFFCBB3C);
+  static const Color yellow100 = Color(0xFFFCAC12);
 
   // Blue shades
   static const Color blue20 = Color(0xFFBDDCFF);

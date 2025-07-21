@@ -3,8 +3,8 @@ import 'package:expensetracker/features/auth/presentation/view/widget/payment_me
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class GridPayemntMethod extends StatelessWidget {
-  const GridPayemntMethod({
+class GridPaymentMethod extends StatelessWidget {
+  const GridPaymentMethod({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class GridPayemntMethod extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
-      physics: const AlwaysScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: PaymentMethodData.paymentMethods.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
