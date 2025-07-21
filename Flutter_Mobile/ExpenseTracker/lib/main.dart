@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:expensetracker/features/home/presentation/view/home_view.dart';
 import 'package:expensetracker/features/main_navigation/presentation/view/main_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +21,7 @@ class ExpenseApp extends StatelessWidget {
       ensureScreenSize: true,
       designSize: const Size(375, 812),
       builder: (context, child) =>const MaterialApp(
-        home:  MainNavigation(),
+        home:  HomeView(),
         debugShowCheckedModeBanner: false,
       ),
     );
