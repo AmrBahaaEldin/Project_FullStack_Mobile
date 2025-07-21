@@ -1,5 +1,4 @@
 import 'package:expensetracker/core/constant/color_app.dart';
-import 'package:expensetracker/core/constant/image_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -28,9 +27,10 @@ class _SplashBodyState extends State<SplashBody>
   }
   @override
   void dispose() {
+     animationController.dispose();
     // TODO: implement dispose
     super.dispose();
-    animationController.dispose();
+   
   }
 
   @override

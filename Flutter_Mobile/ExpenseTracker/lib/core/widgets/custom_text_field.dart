@@ -9,6 +9,7 @@ class EasyTextField extends StatelessWidget {
     required this.text,
     this.keyboardType,
     this.controller,
+    this.isreadOnly = false,
     this.isPassword = false,
     this.onPressed,
     this.suffixIcon,
@@ -22,12 +23,15 @@ class EasyTextField extends StatelessWidget {
   final void Function()? onPressed;
   final Widget? suffixIcon;
   final Color? colorHint;
+  final bool isreadOnly;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: keyboardType ?? TextInputType.text,
       controller: controller,
       obscureText: isPassword,
+      readOnly: isreadOnly,
+      onTap: onPressed,
       style: AppTextStyles.textStyle16.copyWith(color: ColorApp.dark75),
       cursorColor: ColorApp.violet40,
       scrollPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
