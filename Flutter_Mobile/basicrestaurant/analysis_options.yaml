@@ -1,0 +1,47 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints.
+#
+# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
+# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
+# invoked from the command line by running `flutter analyze`.
+
+# The following line activates a set of recommended lints for Flutter apps,
+# packages, and plugins designed to encourage good coding practices.
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    # يفضل استخدام const مع الـ constructors
+    prefer_const_constructors: true
+
+    # يفضل استخدام const مع الـ lists/maps/sets لما ينفع
+    prefer_const_literals_to_create_immutables: true
+
+    # يفضل استخدام final مع المتغيرات اللي مش هتتغير
+    prefer_final_locals: true
+    prefer_final_in_for_each: true
+
+    # لو عندك متغير private (بيبدأ بـ _) ومش مستخدم، يظهرلك تحذير
+    unused_private_field: true
+
+    # يمنع الكود المكرر أو الـ conditions اللي دايمًا صح أو غلط
+    avoid_bool_literals_in_conditional_expressions: true
+
+    # يفضل ترتيب أعضاء الكلاس بشكل منطقي (الـ constructor الأول، بعدين الـ methods)
+    sort_constructors_first: true
+
+    # يفضل استخدام spread operator بدل ما تضيف عناصر يدوياً
+    prefer_spread_collections: true
+
+    # لو عندك if بسيطة تتحول إلى expression (?:)
+    prefer_conditional_expressions: true
+
+    # يمنع الكود الميت (اللي مش ممكن يتنفذ)
+    dead_code: true
+
+    # يمنع المتغيرات أو البراميترز اللي متعرفين ومش مستخدمين
+    unused_local_variable: true
+    unused_element: true
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options

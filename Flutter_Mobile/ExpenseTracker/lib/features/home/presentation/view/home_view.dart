@@ -1,4 +1,5 @@
 import 'package:expensetracker/features/home/presentation/view/widget/cartesian_chart.dart';
+import 'package:expensetracker/features/home/presentation/view/widget/home_body.dart';
 import 'package:expensetracker/features/home/presentation/view/widget/segment_button.dart';
 import 'package:expensetracker/features/home/presentation/view/widget/transaction_list.dart';
 import 'package:expensetracker/features/home/presentation/view/widget/type_payment.dart';
@@ -63,75 +64,7 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                Center(
-                  child: Text(
-                    "Account Balance",
-                    style: AppTextStyles.textStyle14.copyWith(
-                      color: ColorApp.light20,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 9.h,
-                ),
-                 const Center(
-                  child: Text("\$9400", style: AppTextStyles.textStyle32),
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
-                Row(
-                  children: [
-                     const TypePayment(),
-                    SizedBox(
-                      width: 20.w,
-                    ),
-                     const TypePayment(),
-                  ],
-                ),
-                SizedBox(
-                  height: 13.h,
-                ),
-                 const CartesianChart(),
-                 const SegmentButton(),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text("Recent Transactions",
-                        style: AppTextStyles.textStyle18),
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(ColorApp.violet20),
-                      ),
-                      onPressed: () {},
-                      child: Text(
-                        "View All",
-                        style: AppTextStyles.textStyle14
-                            .copyWith(color: ColorApp.violet100),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 8.h,
-                ),
-
-              ],
-            ),
-          ),
-              const TransactionList(),
-
-        ],
-
-      ),
+      body:const HomeBody(),
     );
   }
 }

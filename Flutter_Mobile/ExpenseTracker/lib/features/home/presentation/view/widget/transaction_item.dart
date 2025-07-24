@@ -16,25 +16,28 @@ class TransactionItem extends StatelessWidget {
   final TransactionItemModel data ;
   @override
   Widget build(BuildContext context) {
-    return ListTile(
+    return Padding(
+      padding: EdgeInsetsGeometry.symmetric(horizontal:  20.w),
+      child: ListTile(
 
 
-      contentPadding: EdgeInsets.zero,
-      trailing: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(data.price, style: AppTextStyles.textStyle16.copyWith(
-            color: ColorApp.red100,
-          )),
-          SizedBox(height: 12.h,),
-          Text(data.datetime, style: AppTextStyles.textStyle13.copyWith(
-            color: ColorApp.light20,
-          ),),
-        ],
+        contentPadding: EdgeInsets.zero,
+        trailing: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(data.price, style: AppTextStyles.textStyle16.copyWith(
+              color: ColorApp.red100,
+            )),
+            SizedBox(height: 12.h,),
+            Text(data.datetime, style: AppTextStyles.textStyle13.copyWith(
+              color: ColorApp.light20,
+            ),),
+          ],
+        ),
+        title: Text (data.title,style: AppTextStyles.textStyle16,),
+        subtitle:  Text(data.subtitle,style:AppTextStyles.textStyle13.copyWith(color: ColorApp.light20),),
+        leading: SvgPicture.asset(data.image),
       ),
-      title: Text (data.title,style: AppTextStyles.textStyle16,),
-      subtitle:  Text(data.subtitle,style:AppTextStyles.textStyle13.copyWith(color: ColorApp.light20),),
-      leading: SvgPicture.asset(data.image),
     );
   }
 }
