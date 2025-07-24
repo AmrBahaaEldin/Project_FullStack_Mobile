@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ColorApp {
-  ColorApp._();
+class AppColor {
+  AppColor._();
 
   //primary
   static const Color primary90 = Color(0xFF004646);

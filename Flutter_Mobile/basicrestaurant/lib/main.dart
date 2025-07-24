@@ -13,6 +13,7 @@ class BasicRestaurant extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      designSize:const Size(823, 411),
       minTextAdapt: true,
       splitScreenMode: true,
       ensureScreenSize: true,

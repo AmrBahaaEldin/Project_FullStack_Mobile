@@ -29,7 +29,7 @@ class CustomButtonApp extends StatelessWidget {
       height: 56.h,
       width: double.infinity,
       decoration: BoxDecoration(
-          color: boxColor ?? ColorApp.accent50,
+          color: boxColor ?? AppColor.accent50,
           borderRadius: BorderRadius.circular(
             16.r,
           )),
@@ -42,7 +42,7 @@ class CustomButtonApp extends StatelessWidget {
                 Text(
                   text,
                   style: AppTextStyles.textStyle18.copyWith(
-                    color: textColor ?? ColorApp.black,
+                    color: textColor ?? AppColor.black,
                   ),
                 ),
               ],
@@ -52,7 +52,7 @@ class CustomButtonApp extends StatelessWidget {
               child: Text(
                 text,
                 style: AppTextStyles.textStyle18.copyWith(
-                  color: textColor ?? ColorApp.accent90,
+                  color: textColor ?? AppColor.accent90,
                 ),
               ),
             ),

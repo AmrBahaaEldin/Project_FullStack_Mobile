@@ -32,20 +32,20 @@ class EasyTextField extends StatelessWidget {
       obscureText: isPassword,
       readOnly: isreadOnly,
       onTap: onPressed,
-      style: AppTextStyles.textStyle16.copyWith(color: ColorApp.accent30),
-      cursorColor: ColorApp.accent10,
+      style: AppTextStyles.textStyle16.copyWith(color: AppColor.accent30),
+      cursorColor: AppColor.accent10,
       scrollPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         hint: Text(
           text,
           style: AppTextStyles.textStyle16.copyWith(
-            color: colorHint ?? ColorApp.accent30,
+            color: colorHint ?? AppColor.accent30,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: ColorApp.accent90,
+            color: AppColor.accent90,
             width: 1.w,
           ),
           borderRadius: BorderRadius.circular(
@@ -54,7 +54,7 @@ class EasyTextField extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: ColorApp.accent10,
+            color: AppColor.accent10,
             width: 1.w,
           ),
           borderRadius: BorderRadius.circular(
