@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 //(lineHeight ÷ fontSize)
 
-class AppTextStyles {
-  AppTextStyles._();
+class AppTextStyle {
+  AppTextStyle._();
 
   // Titles
   static const TextStyle textStyle64 = TextStyle(

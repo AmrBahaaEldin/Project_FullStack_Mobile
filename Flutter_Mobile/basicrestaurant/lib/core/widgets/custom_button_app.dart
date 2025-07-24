@@ -1,61 +1,51 @@
-import 'package:basicrestaurant/core/constant/image_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import '../constant/color_app.dart';
 import '../constant/style_app.dart';
 
-class CustomButtonApp extends StatelessWidget {
-  const CustomButtonApp({
+class EasyButtonApp extends StatelessWidget {
+  const EasyButtonApp({
     super.key,
     required this.text,
     this.textColor,
     this.boxColor,
-    this.isTwins = false,
-    this.onPressed,
 
+    this.onPressed,
+    required this.height,
   });
 
   final String text;
   final Color? textColor;
   final Color? boxColor;
-  final bool isTwins;
-  final void Function()? onPressed; // Assuming this is a flag for some condition
+
+  final double height;
+  final void Function()?
+  onPressed; // Assuming this is a flag for some condition
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: 56.h,
+    return SizedBox(
+      height: height,
       width: double.infinity,
-      decoration: BoxDecoration(
-          color: boxColor ?? AppColor.accent50,
-          borderRadius: BorderRadius.circular(
-            16.r,
-          )),
-      child: isTwins
-          ? Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                isTwins ? SvgPicture.asset(ImageApp.googleSV) : const Text(""),
-                SizedBox(width: 10.w),
-                Text(
-                  text,
-                  style: AppTextStyles.textStyle18.copyWith(
-                    color: textColor ?? AppColor.black,
-                  ),
-                ),
-              ],
-            )
-          : TextButton(
-              onPressed: onPressed,
-              child: Text(
-                text,
-                style: AppTextStyles.textStyle18.copyWith(
-                  color: textColor ?? AppColor.accent90,
-                ),
-              ),
-            ),
+      child: TextButton(
+        style: ButtonStyle(
+          textStyle: WidgetStatePropertyAll(
+            AppTextStyle.textStyle16.copyWith(color: textColor),
+          ),
+          backgroundColor: WidgetStatePropertyAll(boxColor),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.r)),
+          ),
+          padding: const WidgetStatePropertyAll(
+            EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+          ),
+        ),
+        onPressed: onPressed,
+
+        child: Text(
+          text,
+          style: AppTextStyle.textStyle16.copyWith(color: textColor),
+        ),
+      ),
     );
   }
 }

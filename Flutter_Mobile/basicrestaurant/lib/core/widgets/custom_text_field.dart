@@ -9,57 +9,52 @@ class EasyTextField extends StatelessWidget {
     required this.text,
     this.keyboardType,
     this.controller,
-    this.isreadOnly = false,
+    this.label,
+    this.isReadOnly = false,
     this.isPassword = false,
-    this.onPressed,
+    this.onPressedTap,
     this.suffixIcon,
     this.colorHint,
+    this.colorLabel,
   });
   final String text;
 
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final bool isPassword;
-  final void Function()? onPressed;
+  final void Function()? onPressedTap;
   final Widget? suffixIcon;
   final Color? colorHint;
-  final bool isreadOnly;
+  final String? label;
+  final bool isReadOnly;
+  final Color? colorLabel;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: keyboardType ?? TextInputType.text,
       controller: controller,
       obscureText: isPassword,
-      readOnly: isreadOnly,
-      onTap: onPressed,
-      style: AppTextStyles.textStyle16.copyWith(color: AppColor.accent30),
+      readOnly: isReadOnly,
+
+      style: AppTextStyle.textStyle16.copyWith(color: AppColor.black),
       cursorColor: AppColor.accent10,
-      scrollPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+      scrollPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
       decoration: InputDecoration(
+        labelText: label,
+        labelStyle: AppTextStyle.textStyle18.copyWith(color: colorLabel),
+
         suffixIcon: suffixIcon,
         hint: Text(
           text,
-          style: AppTextStyles.textStyle16.copyWith(
-            color: colorHint ?? AppColor.accent30,
-          ),
+          style: AppTextStyle.textStyle18.copyWith(color: colorHint),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColor.accent90,
-            width: 1.w,
-          ),
-          borderRadius: BorderRadius.circular(
-            16.r,
-          ),
+          borderSide: BorderSide(color: AppColor.accent90, width: 1.w),
+          borderRadius: BorderRadius.circular(6.r),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: AppColor.accent10,
-            width: 1.w,
-          ),
-          borderRadius: BorderRadius.circular(
-            16.r,
-          ),
+          borderSide: BorderSide(color: AppColor.accent90, width: 1.w),
+          borderRadius: BorderRadius.circular(6.r),
         ),
       ),
     );
