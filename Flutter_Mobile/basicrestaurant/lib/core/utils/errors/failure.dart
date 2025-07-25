@@ -37,3 +37,7 @@ class ServerFailure extends Failure {
     return ServerFailure("Opps There was an error ,please try again later");
   }
 }
+class FireBaseFailure extends Failure {
+  FireBaseFailure(super.errorMessage);
+
+}

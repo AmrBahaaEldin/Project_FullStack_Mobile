@@ -10,10 +10,10 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading:const Icon(Icons.arrow_back),
-        title: const Text('Login',style:AppTextStyle.textStyle24,),
+        leading: const Icon(Icons.arrow_back),
+        title: const Text('Login', style: AppTextStyle.textStyle24,),
       ),
-      body:const LoginBody(),
+      body: const LoginBody(),
     );
   }
 }

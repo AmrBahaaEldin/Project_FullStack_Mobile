@@ -1,12 +1,15 @@
 //import 'package:basicrestaurant/core/constant/router_app.dart';
 import 'package:basicrestaurant/firebase_options.dart';
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'core/utils/bloc_observer.dart';
 import 'features/auth/login/presentation/view/login_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
   fireBaseInitial();
 
   runApp(const BasicRestaurant());

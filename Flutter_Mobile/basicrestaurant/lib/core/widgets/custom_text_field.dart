@@ -11,11 +11,12 @@ class EasyTextField extends StatelessWidget {
     this.controller,
     this.label,
     this.isReadOnly = false,
-    this.isPassword = false,
+    this.isPassword =false,
     this.onPressedTap,
     this.suffixIcon,
     this.colorHint,
     this.colorLabel,
+    this.validator,
   });
   final String text;
 
@@ -28,9 +29,11 @@ class EasyTextField extends StatelessWidget {
   final String? label;
   final bool isReadOnly;
   final Color? colorLabel;
+ final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       keyboardType: keyboardType ?? TextInputType.text,
       controller: controller,
       obscureText: isPassword,
