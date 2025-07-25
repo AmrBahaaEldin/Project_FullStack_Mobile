@@ -44,7 +44,7 @@ class _LoginBodyState extends State<LoginBody> {
               colorBackground: Colors.green,
               colorText: Colors.white,
             );
-            routerGoHome(context);
+            routerGoMenu(context);
           }
           if (state is LoginError) {
             toastMessage(
@@ -169,7 +169,7 @@ class _LoginBodyState extends State<LoginBody> {
     );
   }
 
-  Future<void> routerGoHome(BuildContext context) {
+  Future<void> routerGoMenu(BuildContext context) {
     return Future.delayed(const Duration(seconds: 1), () {
       if (!context.mounted) return;
       GoRouter.of(context).go(RouterApp.menu);

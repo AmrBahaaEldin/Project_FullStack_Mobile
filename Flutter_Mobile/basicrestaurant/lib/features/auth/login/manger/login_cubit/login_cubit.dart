@@ -26,7 +26,7 @@ class LoginCubit extends Cubit<LoginState> {
         email: emailAddress,
         password: password,
       );
-      emit(LoginSuccess(credential.user!.uid));
+      emit(LoginSuccess(credential.user!.email!));
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case 'invalid-email':
