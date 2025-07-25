@@ -1,4 +1,4 @@
-import 'package:basicrestaurant/core/constant/router_app.dart';
+import 'package:basicrestaurant/features/menu/presentation/view/menu_view.dart';
 import 'package:basicrestaurant/firebase_options.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -29,11 +29,12 @@ class BasicRestaurant extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       ensureScreenSize: true,
-      builder: (context, child) =>MaterialApp.router(
-        routerConfig: RouterApp.router,
-        debugShowCheckedModeBanner: false,
-      
-      ) ,
+      builder: (context, child) => const MaterialApp(home: MenuView()),
+      // router(
+      //   routerConfig: RouterApp.router,
+      //   debugShowCheckedModeBanner: false,
+      //
+      // ) ,
     );
   }
 }
