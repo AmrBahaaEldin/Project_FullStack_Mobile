@@ -1,11 +1,10 @@
-//import 'package:basicrestaurant/core/constant/router_app.dart';
+import 'package:basicrestaurant/core/constant/router_app.dart';
 import 'package:basicrestaurant/firebase_options.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'core/utils/bloc_observer.dart';
-import 'features/auth/login/presentation/view/login_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,16 +29,11 @@ class BasicRestaurant extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       ensureScreenSize: true,
-      builder: (context, child) => const MaterialApp(
+      builder: (context, child) =>MaterialApp.router(
+        routerConfig: RouterApp.router,
         debugShowCheckedModeBanner: false,
-        home: LoginView(),
-      ),
-
-      //     MaterialApp.router(
-      //   routerConfig: RouterApp.router,
-      //   debugShowCheckedModeBanner: false,
-      //
-      // ) ,
+      
+      ) ,
     );
   }
 }

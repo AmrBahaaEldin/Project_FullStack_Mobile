@@ -1,3 +1,4 @@
+import 'package:basicrestaurant/core/constant/router_app.dart';
 import 'package:basicrestaurant/core/widgets/custom_text_field.dart';
 import 'package:basicrestaurant/features/auth/login/manger/login_cubit/login_cubit.dart';
 import 'package:basicrestaurant/features/auth/login/manger/login_cubit/login_state.dart';
@@ -5,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../../../core/constant/color_app.dart';
@@ -37,25 +39,18 @@ class _LoginBodyState extends State<LoginBody> {
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginSuccess) {
-            Fluttertoast.showToast(
-              msg: state.message,
-              toastLength: Toast.LENGTH_LONG,
-              gravity: ToastGravity.BOTTOM,
-              timeInSecForIosWeb: 1,
-              backgroundColor: Colors.green,
-              textColor: Colors.white,
-              fontSize: 16.0.sp,
+            toastMessage(
+              state: state.message,
+              colorBackground: Colors.green,
+              colorText: Colors.white,
             );
+            routerGoHome(context);
           }
           if (state is LoginError) {
-            Fluttertoast.showToast(
-              msg: state.error,
-              toastLength: Toast.LENGTH_LONG,
-              gravity: ToastGravity.BOTTOM,
-              timeInSecForIosWeb: 1,
-              backgroundColor: Colors.red,
-              textColor: Colors.white,
-              fontSize: 16.0.sp,
+            toastMessage(
+              state: state.error,
+              colorBackground: Colors.red,
+              colorText: Colors.white,
             );
           }
         },
@@ -94,8 +89,8 @@ class _LoginBodyState extends State<LoginBody> {
                       EasyTextField(
                         controller: passwordController,
                         validator: (p0) {
-                          if (p0!.isEmpty) {
-                            return "please enter password";
+                          if (p0 == null || p0.isEmpty) {
+                            return "Please enter your password.";
                           }
                           return null;
                         },
@@ -104,7 +99,7 @@ class _LoginBodyState extends State<LoginBody> {
                           onPressed: () {
                             context.read<LoginCubit>().changeShowPassword();
                           },
-                          icon: Icon(context.read<LoginCubit>().suffixIcon),
+                          icon: Icon(context.watch<LoginCubit>().suffixIcon),
                         ),
 
                         text: "password",
@@ -122,6 +117,7 @@ class _LoginBodyState extends State<LoginBody> {
                               password: passwordController.text,
                             );
                           }
+                          FocusScope.of(context).unfocus();
                         },
                         height: 45,
                         text: 'Login',
@@ -157,9 +153,26 @@ class _LoginBodyState extends State<LoginBody> {
     );
   }
 
+  Future<void> toastMessage({
+    required String state,
+    required Color colorBackground,
+    required Color colorText,
+  }) {
+    return Fluttertoast.showToast(
+      msg: state,
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: colorBackground,
+      textColor: colorText,
+      fontSize: 30.0.sp,
+    );
+  }
+
   Future<void> routerGoHome(BuildContext context) {
-    return Future.delayed(const Duration(seconds: 3), () {
-      // Router.of(context).;
+    return Future.delayed(const Duration(seconds: 1), () {
+      if (!context.mounted) return;
+      GoRouter.of(context).go(RouterApp.menu);
     });
   }
 }

@@ -27,8 +27,7 @@ class LoginCubit extends Cubit<LoginState> {
         password: password,
       );
       emit(LoginSuccess(credential.user!.uid));
-    }
-      on FirebaseAuthException catch (e) {
+    } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case 'invalid-email':
           emit(LoginError('Invalid email format.'));
@@ -40,6 +39,7 @@ class LoginCubit extends Cubit<LoginState> {
           emit(LoginError('No user found with this email.'));
           break;
         case 'wrong-password':
+        case 'invalid-credential':
           emit(LoginError('Incorrect password.'));
           break;
         case 'too-many-requests':
@@ -55,10 +55,8 @@ class LoginCubit extends Cubit<LoginState> {
           emit(LoginError('An unknown error occurred.'));
           break;
         default:
-          emit(LoginError('Error: ${e.message}'));
+          emit(LoginError('Error: ${e.code}'));
       }
     }
-
   }
-  }
-
+}
