@@ -28,14 +28,14 @@
 //               left: 152.w,
 //                 right: 151.w,
 //                 bottom: 436.h,
-//                 child: Image.asset("assets/png/log.png")),
+//                 child: Image.assets("assets/png/log.png")),
 //
 //             Positioned(
 //                 top: 410.h,
 //                 left: 126.w,
 //                 right: 125.w,
 //                 bottom: 373.h,
-//                 child: SvgPicture.asset("assets/svg/text.svg")),
+//                 child: SvgPicture.assets("assets/svg/text.svg")),
 //
 //           ],
 //         ),
