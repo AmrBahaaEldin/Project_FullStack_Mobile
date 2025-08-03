@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:zalada_app/features/intro/presentation/widget/onboarding_view.dart';
+import 'package:zalada_app/features/intro/presentation/view/onboarding_view.dart';
 
 class RouterApp {
   RouterApp._();

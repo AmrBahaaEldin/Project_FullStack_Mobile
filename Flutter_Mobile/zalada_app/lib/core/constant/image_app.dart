@@ -25,4 +25,8 @@ class ImageApp {
 
   static const String mandiriSV = 'assets/svg/payment__method/Mandiri.svg';
   static const String paypalSV = 'assets/svg/payment__method/Paypal.svg';
+
+  static const String onBoarding1SV = "assets/svg/onboarding_1.svg";
+  static const String onBoarding2SV = "assets/svg/onboarding_2.svg";
+  static const String onBoarding3SV = "assets/svg/onboarding_3.svg";
 }
