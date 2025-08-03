@@ -1,10 +1,10 @@
-import 'package:expensetracker/core/constant/font_app.dart';
 import 'package:flutter/material.dart';
+import 'package:zalada_app/core/constant/font_app.dart';
 
 //(lineHeight ÷ fontSize)
 
-class AppTextStyles {
-  AppTextStyles._();
+class StylesTextApp {
+  StylesTextApp._();
 
   // Titles
   static const TextStyle textStyle64 = TextStyle(

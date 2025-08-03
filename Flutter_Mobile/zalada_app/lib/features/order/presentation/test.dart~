@@ -1,0 +1,422 @@
+// import 'package:coffce_app/logic/coffee_state/home_state.dart';
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:google_fonts/google_fonts.dart';
+// import '../../logic/coffee_cubit/home_cubit.dart';
+// import '../trackorder/track_order_screen.dart';
+//
+// class CheckoutScreen extends StatelessWidget {
+//    const CheckoutScreen({super.key});
+//
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(
+//           "Checkout",
+//           style: GoogleFonts.poppins(
+//             fontSize: 16.sp,
+//             fontWeight: FontWeight.w500,
+//             color: Color(0xFF3C3C3C),
+//           ),
+//         ),
+//         leading: IconButton(
+//             onPressed: () {
+//               Navigator.pop(context);
+//             },
+//             icon: Icon(Icons.arrow_back)),
+//         shadowColor: Colors.black,
+//         elevation: 4,
+//         backgroundColor: Colors.white,
+//       ),
+//       body: BlocConsumer<CoffeeCubit, CoffeeState>(
+//
+//         listener: (context, state) {
+//         },
+//         builder: (context, state) {
+//           return Column(
+//             children: [
+//               Container(
+//                 padding: EdgeInsets.only(left: 20, top: 24, right: 20),
+//                 child: Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     CustomDrinkCounterItem(
+//                       index: 0,
+//                     ),
+//                     SizedBox(
+//                       height: 20.h,
+//                     ),
+//                     Row(
+//                       children: [
+//                         Icon(
+//                           Icons.arrow_back_ios_new,
+//                           color: Color(0xff5D4037),
+//                         ),
+//                         Text(
+//                           "Add Order",
+//                           style: GoogleFonts.poppins(
+//                               fontSize: 14,
+//                               fontWeight: FontWeight.w500,
+//                               color: Color(0xff5D4037)),
+//                         )
+//                       ],
+//                     ),
+//                     Divider(
+//                       thickness: 3,
+//                       height: 4.h,
+//                       color: Color(0xffEFEBE9),
+//                     ),
+//                     Text("When do you want order?",
+//                         style: GoogleFonts.poppins(
+//                             color: Color(0xFF3C3C3C),
+//                             fontWeight: FontWeight.w600,
+//                             fontSize: 14.sp)),
+//                     Text("*We are open from 08.00 - 20.00 WIB",
+//                         style: GoogleFonts.poppins(
+//                             color: Color(0xFF555555),
+//                             fontWeight: FontWeight.w400,
+//                             fontSize: 12.sp)),
+//                     RadioListTile(
+//                       contentPadding: EdgeInsets.zero,
+//                       title: Text(
+//                         "As Soon as Possible",
+//                         style: GoogleFonts.poppins(
+//                             fontSize: 14, fontWeight: FontWeight.w500),
+//                       ),
+//                       subtitle: Text(
+//                         "Now - 10 Minute",
+//                         style: GoogleFonts.poppins(
+//                             color: Color(0xFF555555),
+//                             fontSize: 12,
+//                             fontWeight: FontWeight.w500),
+//                       ),
+//                       value: 'Now - 10 Minute',
+//                       selected: context.read<CoffeeCubit>().isSelected,
+//                       groupValue: context.read<CoffeeCubit>().selectedOption,
+//                       onChanged: (value) {
+//                         context.read<CoffeeCubit>().changeSelected(value);},
+//                       controlAffinity: ListTileControlAffinity.trailing,
+//                       activeColor: Colors.blue, // Customize radio button color
+//                     ),
+//                     RadioListTile(
+//
+//                       contentPadding: EdgeInsets.zero,
+//                       title: Text(
+//                         "Later",
+//                         style: GoogleFonts.poppins(
+//                             fontSize: 14, fontWeight: FontWeight.w500),
+//                       ),
+//                       subtitle: Text(
+//                         "Schedule Pick Up (08.45 A.M)",
+//                         style: GoogleFonts.poppins(
+//                             color: Color(0xFF555555),
+//                             fontSize: 12,
+//                             fontWeight: FontWeight.w500),
+//                       ),
+//                       value: 'after 10 hours',
+//                       selected:!context.read<CoffeeCubit>(). isSelected,
+//                       groupValue: context.read<CoffeeCubit>().selectedOption,
+//                       onChanged: (value) {
+//                         context.read<CoffeeCubit>().changeSelected(value);
+//                       },
+//                       controlAffinity: ListTileControlAffinity.trailing,
+//                       activeColor: Colors.blue, // Customize radio button color
+//                     ),
+//                     ListTile(
+//                         contentPadding: EdgeInsets.zero,
+//                         title: Text(
+//                           "Payment Method",
+//                           style: GoogleFonts.poppins(
+//                               fontSize: 14, fontWeight: FontWeight.w500),
+//                         ),
+//                         subtitle: Text(
+//                           "Gopay (Rp85.000)",
+//                           style: GoogleFonts.poppins(
+//                               color: Color(0xFF555555),
+//                               fontSize: 12,
+//                               fontWeight: FontWeight.w500),
+//                         ),
+//                         trailing: Icon(Icons.arrow_forward_ios)),
+//                     ListTile(
+//                         contentPadding: EdgeInsets.zero,
+//                         title: Text(
+//                           "Voucher",
+//                           style: GoogleFonts.poppins(
+//                               fontSize: 14, fontWeight: FontWeight.w500),
+//                         ),
+//                         subtitle: Text(
+//                           "no voucher added",
+//                           style: GoogleFonts.poppins(
+//                               color: Color(0xFF555555),
+//                               fontSize: 12,
+//                               fontWeight: FontWeight.w500),
+//                         ),
+//                         trailing: Icon(Icons.arrow_forward_ios)),
+//                     Divider(
+//                       thickness: 3,
+//                       height: 4.h,
+//                       color: Color(0xffEFEBE9),
+//                     ),
+//                     Text(
+//                       "Payment Summary",
+//                       style: GoogleFonts.poppins(
+//                           fontSize: 14, fontWeight: FontWeight.w500),
+//                     ),
+//                     ListTile(
+//                       contentPadding: EdgeInsets.zero,
+//                       title: Text(
+//                         "Voucher",
+//                         style: GoogleFonts.poppins(
+//                             fontSize: 14, fontWeight: FontWeight.w500),
+//                       ),
+//                       subtitle: Text(
+//                         "(${context.watch<CoffeeCubit>().counterOrder} item)",
+//                         style: GoogleFonts.poppins(
+//                             color: Color(0xFF555555),
+//                             fontSize: 12,
+//                             fontWeight: FontWeight.w500),
+//                       ),
+//                       trailing: Text(
+//                         "Rp ${context.read<CoffeeCubit>().coffeeData[0].salaryCoffee* context.read<CoffeeCubit>().counterOrder}",
+//                         style: GoogleFonts.poppins(
+//                             fontSize: 14, fontWeight: FontWeight.w500),
+//                       ),
+//                     ),
+//                     ListTile(
+//                       contentPadding: EdgeInsets.zero,
+//                       title: Text(
+//                         "Total",
+//                         style: GoogleFonts.poppins(
+//                             fontSize: 14, fontWeight: FontWeight.w500),
+//                       ),
+//                       trailing: Text(
+//                         "Rp ${context.read<CoffeeCubit>().coffeeData[0].salaryCoffee* context.read<CoffeeCubit>().counterOrder}",
+//                         style: GoogleFonts.poppins(
+//                             fontSize: 14, fontWeight: FontWeight.w500),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               Container(
+//                 width: double.infinity,
+//                 padding: EdgeInsets.symmetric(
+//                   horizontal: 19,
+//                   vertical: 8,
+//                 ),
+//                 decoration: BoxDecoration(color: Colors.white, boxShadow: [
+//                   BoxShadow(
+//                     blurStyle: BlurStyle.outer,
+//                     color: Colors.black.withValues(alpha: .7),
+//                     spreadRadius: 1,
+//                     blurRadius: 2,
+//                   ),
+//                 ]),
+//                 child: ListTile(
+//                   contentPadding: EdgeInsets.zero,
+//                   title: Text(
+//                     "Total",
+//                     style: GoogleFonts.poppins(
+//                         fontSize: 14, fontWeight: FontWeight.w500),
+//                   ),
+//                   subtitle: Text(
+//           "Rp ${context.read<CoffeeCubit>().coffeeData[0].salaryCoffee* context.read<CoffeeCubit>().counterOrder}",
+//                     style: GoogleFonts.poppins(
+//                         color: Color(0xFF555555),
+//                         fontSize: 12,
+//                         fontWeight: FontWeight.w500),
+//                   ),
+//                   trailing: GestureDetector(
+//                     onTap: () => Navigator.push(
+//                         context,
+//                         MaterialPageRoute(
+//                           builder: (context) => TrackOrderScreen(),
+//                         )),
+//                     child: Container(
+//                       decoration: BoxDecoration(
+//                         color: Color(0xFF5D4037),
+//                         borderRadius: BorderRadius.all(Radius.circular(12)),
+//                       ),
+//                       padding: EdgeInsets.symmetric(
+//                         vertical: 12,
+//                         horizontal: 24,
+//                       ),
+//                       child: Text(
+//                         "checkout",
+//                         style: TextStyle(color: Colors.white),
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
+//
+// class CustomDrinkCounterItem extends StatelessWidget {
+//   final int index;
+//
+//   const CustomDrinkCounterItem({
+//     super.key,
+//     required this.index,
+//   });
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       children: [
+//         Stack(
+//           children: [
+//             Container(
+//                 height: 69.h,
+//                 padding: EdgeInsets.all(1),
+//                 width: 66.w,
+//                 decoration: ShapeDecoration(
+//                     color: Colors.grey.shade200, shape: OvalBorder()),
+//                 child: Image(
+//                     image: AssetImage(context
+//                         .read<CoffeeCubit>()
+//                         .coffeeData[index]
+//                         .imageCoffee))),
+//           ],
+//         ),
+//         SizedBox(
+//           width: 8,
+//         ),
+//         Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             SizedBox(
+//               width: 186.w,
+//               height: 20.h,
+//               child: Text(
+//                 context.read<CoffeeCubit>().coffeeData[index].nameCoffee,
+//                 style: GoogleFonts.poppins(
+//                   fontWeight: FontWeight.w500,
+//                   fontSize: 14.sp,
+//                 ),
+//               ),
+//             ),
+//             SizedBox(
+//               width: 186.w,
+//               height: 20.h,
+//               child: Text(
+//                 context.read<CoffeeCubit>().coffeeData[index].describeCoffee,
+//                 maxLines: 2,
+//                 overflow: TextOverflow.visible,
+//                 style: GoogleFonts.poppins(
+//                   fontWeight: FontWeight.w400,
+//                   fontSize: 12.sp,
+//                 ),
+//               ),
+//             ),
+//             SizedBox(
+//               height: 8.5.h,
+//             ),
+//             Row(
+//               children: [
+//                 GestureDetector(
+//                   onTap: () {
+//                     context.read<CoffeeCubit>().decrementCounter();
+//
+//                   },
+//                   child: Container(
+//                     width: 26.w,
+//                     height: 26.h,
+//                     alignment: Alignment.centerRight,
+//                     decoration: BoxDecoration(
+//                         borderRadius: BorderRadius.only(
+//                           bottomLeft: Radius.circular(4),
+//                           topLeft: Radius.circular(4),
+//                         ),
+//                         border: Border.all(
+//                           width: 1,
+//                           color: Color(0xFFCACACA),
+//                         )),
+//                     padding: EdgeInsets.all(1),
+//                     child: Icon(
+//                       CupertinoIcons.minus,
+//                       size: 20,
+//                       color: Color(0xffCACACA),
+//                     ),
+//                   ),
+//                 ),
+//                 Container(
+//                   width: 26.w,
+//                   height: 26.h,
+//                   alignment: Alignment.center,
+//                   decoration: BoxDecoration(
+//                       border: Border.all(
+//                     width: 1,
+//                     color: Color(0xFFCACACA),
+//                   )),
+//                   padding: EdgeInsets.all(2),
+//                   child: Text("${context.read<CoffeeCubit>().counterOrder}"),
+//                 ),
+//                 GestureDetector(
+//                   onTap: () {
+//                     context.read<CoffeeCubit>().incrementCounter();
+//
+//                   },
+//                   child: Container(
+//                     width: 26.w,
+//                     height: 26.h,
+//                     alignment: Alignment.center,
+//                     decoration: BoxDecoration(
+//                         borderRadius: BorderRadius.only(
+//                           bottomRight: Radius.circular(4),
+//                           topRight: Radius.circular(4),
+//                         ),
+//                         border: Border.all(
+//                           width: 1,
+//                           color: Color(0xFFCACACA),
+//                         )),
+//                     padding: EdgeInsets.all(1),
+//                     child: Icon(
+//                       Icons.add,
+//                       color: Color(0xff5D4037),
+//                     ),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ],
+//         ),
+//         Spacer(),
+//         Column(
+//           children: [
+//             Text(
+//               "Rp ${context.read<CoffeeCubit>().coffeeData[index].salaryCoffee* context.read<CoffeeCubit>().counterOrder}",
+//               style: GoogleFonts.poppins(
+//                 fontWeight: FontWeight.w500,
+//                 fontSize: 14.sp,
+//               ),
+//             ),
+//             SizedBox(
+//               height: 4.h,
+//             ),
+//             SizedBox(
+//               width: 46.w,
+//               child: Text(
+//                 textAlign: TextAlign.right,
+//                 "x${context.read<CoffeeCubit>().counterOrder}",
+//                 style: GoogleFonts.poppins(
+//                   fontWeight: FontWeight.w400,
+//                   fontSize: 12.sp,
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ],
+//     );
+//   }
+// }
