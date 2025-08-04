@@ -1,12 +1,15 @@
-import 'package:flutter/material.dart';
+
+
 import 'package:go_router/go_router.dart';
-import 'package:zalada_app/features/intro/presentation/view/onboarding_view.dart';
+
+import '../../features/auth/presentation/view/login_view.dart';
+import '../../features/intro/presentation/view/onboarding_view.dart';
 
 class RouterApp {
   RouterApp._();
 
-  static const String splash = '/';
-  static const String onBoarding = '/onBoarding';
+  static const String onBoarding = '/';
+  //static const String onBoarding = '/onBoarding';
   static const String register = '/register';
   static const String login = '/login';
   static const String setupAccount = '/setupAccount';
@@ -18,29 +21,29 @@ class RouterApp {
   static GoRouter router = GoRouter(
     routes: <RouteBase>[
       GoRoute(
-        path: splash,
+        path: onBoarding,
         builder: (context, state) {
           return const OnboardingView();
         },
       ),
-      GoRoute(
-        path: onBoarding,
-        pageBuilder: (context, state) {
-          return CustomTransitionPage(
-            transitionsBuilder:
-                (context, animation, secondaryAnimation, child) =>
-                    FadeTransition(opacity: animation, child: child),
-            transitionDuration: const Duration(milliseconds: 1000),
-            child: const OnboardingView(),
-          );
-        },
-      ),
       // GoRoute(
       //   path: login,
-      //   builder: (BuildContext context, GoRouterState state) {
-      //     return const LoginView();
+      //   pageBuilder: (context, state) {
+      //     return CustomTransitionPage(
+      //       transitionsBuilder:
+      //           (context, animation, secondaryAnimation, child) =>
+      //               FadeTransition(opacity: animation, child: child),
+      //       transitionDuration: const Duration(milliseconds: 1000),
+      //       child: const LoginView(),
+      //     );
       //   },
       // ),
+      GoRoute(
+        path: login,
+        builder: (context, state) {
+          return const LoginView();
+        },
+      ),
       // GoRoute(
       //   path: register,
       //   builder: (context, state) => const RegisterView(),

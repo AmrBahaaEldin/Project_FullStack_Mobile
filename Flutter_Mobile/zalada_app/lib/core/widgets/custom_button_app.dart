@@ -7,19 +7,21 @@ import '../constant/color_app.dart';
 import '../constant/style_app.dart';
 
 class CustomButtonApp extends StatelessWidget {
-  const CustomButtonApp({
+  const CustomButtonApp( {
     required this.text,
     super.key,
     this.textColor,
     this.boxColor,
     this.isTwins = false,
     this.onPressed,
+    this.widget,
   });
 
   final String text;
   final Color? textColor;
   final Color? boxColor;
   final bool isTwins;
+  final Widget? widget;
   final void Function()?
   onPressed; // Assuming this is a flag for some condition
 
@@ -37,11 +39,11 @@ class CustomButtonApp extends StatelessWidget {
           ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                isTwins ? SvgPicture.asset(ImageApp.googleSV) : const Text(""),
+                isTwins ? widget! : const Text(""),
                 SizedBox(width: 10.w),
                 Text(
                   text,
-                  style: StylesTextApp.textStyle18.copyWith(
+                  style: StylesTextApp.textStyle16.copyWith(
                     color: textColor ?? ColorApp.light80,
                   ),
                 ),
@@ -51,7 +53,7 @@ class CustomButtonApp extends StatelessWidget {
               onPressed: onPressed,
               child: Text(
                 text,
-                style: StylesTextApp.textStyle18.copyWith(
+                style: StylesTextApp.textStyle16.copyWith(
                   color: textColor ?? ColorApp.light80,
                 ),
               ),

@@ -1,8 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:zalada_app/core/constant/color_app.dart';
+import 'package:zalada_app/core/constant/router_app.dart';
 import 'package:zalada_app/features/intro/data/model/onboarding_data.dart';
 import 'package:zalada_app/features/intro/presentation/view/widget/onboarding_item.dart';
 
@@ -17,7 +19,6 @@ class _OnboardingBodyState extends State<OnboardingBody> {
   double percent = .33;
   int currentIndex = 0;
   final CarouselSliderController _controller = CarouselSliderController();
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -67,14 +68,13 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                   ),
                   child: IconButton(
                     onPressed: () {
-                      if (currentIndex <
+                      if (currentIndex ==
                           OnboardingData.onboardingData.length - 1) {
-                        _controller.nextPage();
-                        percent += 0.334;
+                        debugPrint("last");
+                        nextLoginView(context);
                       } else {
-                        percent = 0.33;
-                        currentIndex = 0;
-                        _controller.jumpToPage(0);
+                        _controller.nextPage();
+                        percent += 0.33;
                       }
                     },
 
@@ -92,4 +92,12 @@ class _OnboardingBodyState extends State<OnboardingBody> {
       ),
     );
   }
+}
+
+
+void nextLoginView(BuildContext context) {
+  // if (!context.mounted) {
+  //   return;
+  // }
+ return GoRouter.of(context).go(RouterApp.login);
 }

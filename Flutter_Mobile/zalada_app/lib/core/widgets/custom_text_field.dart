@@ -4,35 +4,34 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zalada_app/core/constant/color_app.dart';
 import 'package:zalada_app/core/constant/style_app.dart';
 
-class EasyTextField extends StatelessWidget {
-  const EasyTextField({
-    required this.text,
-    super.key,
+class CustomTextFieldApp extends StatelessWidget {
+  const CustomTextFieldApp({
 
+    super.key,
+    this.textHint,
     this.keyboardType,
     this.controller,
-    this.isreadOnly = false,
+    this.isReadOnly = false,
     this.isPassword = false,
     this.onPressed,
     this.suffixIcon,
-    this.colorHint,
+    this.colorHint, required String? Function(dynamic value) validator,
   });
-  final String text;
-
+  final String ?textHint;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
   final bool isPassword;
   final void Function()? onPressed;
   final Widget? suffixIcon;
   final Color? colorHint;
-  final bool isreadOnly;
+  final bool isReadOnly;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: keyboardType ?? TextInputType.text,
       controller: controller,
       obscureText: isPassword,
-      readOnly: isreadOnly,
+      readOnly: isReadOnly,
       onTap: onPressed,
       style: StylesTextApp.textStyle16.copyWith(color: ColorApp.dark75),
       cursorColor: ColorApp.violet40,
@@ -40,7 +39,7 @@ class EasyTextField extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         hint: Text(
-          text,
+          textHint??"",
           style: StylesTextApp.textStyle16.copyWith(
             color: colorHint ?? ColorApp.violet40,
           ),

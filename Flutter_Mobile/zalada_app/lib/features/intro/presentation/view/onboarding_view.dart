@@ -28,16 +28,3 @@ class OnboardingView extends StatelessWidget {
   }
 }
 
-// void checkCache(BuildContext context) {
-//   CacheHelper.getData(key: 'token') != null
-//       ? Navigator.pushAndRemoveUntil(
-//           context,
-//           MaterialPageRoute(builder: (context) => LayoutScreen()),
-//           (route) => false,
-//         )
-//       : Navigator.pushAndRemoveUntil(
-//           context,
-//           MaterialPageRoute(builder: (context) => LoginView()),
-//           (route) => false,
-//         );
-// }
