@@ -94,10 +94,9 @@ class _OnboardingBodyState extends State<OnboardingBody> {
   }
 }
 
-
 void nextLoginView(BuildContext context) {
   // if (!context.mounted) {
   //   return;
   // }
- return GoRouter.of(context).go(RouterApp.login);
+  return GoRouter.of(context).go(RouterApp.login);
 }

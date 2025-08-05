@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,7 +6,7 @@ import '../constant/color_app.dart';
 import '../constant/style_app.dart';
 
 class CustomButtonApp extends StatelessWidget {
-  const CustomButtonApp( {
+  const CustomButtonApp({
     required this.text,
     super.key,
     this.textColor,

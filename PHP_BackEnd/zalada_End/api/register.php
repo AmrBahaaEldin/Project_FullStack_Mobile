@@ -1,34 +1,28 @@
+l
 <?php
-require_once '../../config/db.php';
+require_once '../config/db.php';
 header("Content-Type: application/json");
-
-if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name'])) {
-
-    $email = $_POST['email'];
-    $name = $_POST['name'];
-    $password = $_POST['password'];
-
-    // التحقق من الطول
-    if (strlen($password) < 6) {
-        http_response_code(400);
-        echo json_encode([
-            "message" => "Password must be at least 6 characters"
-        ]);
-        exit;
+if (isset($_POST['email']) && isset($_POST['password'])) {
+$email=$_POST['email'];
+$pass=$_POST['password'];
+;
+if(strlen($pass)<6){
+     http_response_code(400);
+     echo json_encode([
+        "message" => "Password must be at least 6 characters"
+ ]);
+ exit;
     }
 
-    // التحقق من الإيميل بصيغة صحيحة
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         http_response_code(400);
         echo json_encode([
             "message" => "Invalid email format"
         ]);
         exit;
     }
-
-    // التحقق هل الإيميل موجود قبل كدا
-    $checkStmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
-    $checkStmt->bind_param("s", $email);
+    $checkStmt=$conn->prepare("SELECT id FROM users WHERE email = ?");
+$checkStmt->bind_param("s", $email);
     $checkStmt->execute();
     $checkResult = $checkStmt->get_result();
     if ($checkResult->num_rows > 0) {
@@ -38,14 +32,12 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name'])
         ]);
         exit;
     }
-
     // تشفير الباسورد
-    $hashedPassword = md5($password); // أو password_hash($password, PASSWORD_DEFAULT)
+    $hashedPassword = md5($pass);
 
     // تسجيل المستخدم
-    $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $name, $email, $hashedPassword);
-
+    $stmt = $conn->prepare("INSERT INTO users ( email, password) VALUES (?, ?)");
+    $stmt->bind_param("ss",$email, $hashedPassword);
     if ($stmt->execute()) {
         $token = bin2hex(random_bytes(16));
         http_response_code(201);
@@ -60,11 +52,13 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['name'])
             "message" => "Registration failed"
         ]);
     }
+}
 
-} 
-else {
+    else {
     http_response_code(400);
     echo json_encode([
         "message" => "All fields are required"
     ]);
 }
+
+?>

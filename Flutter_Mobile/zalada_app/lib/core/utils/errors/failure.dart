@@ -19,7 +19,9 @@ class ServerFailure extends Failure {
         return ServerFailure('BadCertificate with ApiServer');
       case DioExceptionType.badResponse:
         return ServerFailure.formResponse(
-            dioException.response!.statusCode!, dioException.response!.data);
+          dioException.response!.statusCode!,
+          dioException.response!.data,
+        );
       case DioExceptionType.cancel:
         return ServerFailure('Cancel with ApiServer');
       case DioExceptionType.connectionError:

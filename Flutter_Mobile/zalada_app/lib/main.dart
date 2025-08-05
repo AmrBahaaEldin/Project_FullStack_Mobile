@@ -6,8 +6,9 @@ import 'package:zalada_app/core/utils/bloc_observer.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Bloc.observer = MyBlocObserver();
 
+  Bloc.observer = MyBlocObserver();
+  // Initialize service locator
   runApp(const ZaladaApp());
 }
 

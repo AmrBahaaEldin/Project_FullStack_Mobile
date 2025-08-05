@@ -55,7 +55,4 @@ class ColorApp {
   static const Color blue60 = Color(0xFF57A5FF);
   static const Color blue80 = Color(0xFF248AFF);
   static const Color blue100 = Color(0xFF0077FF);
-
-  
- 
 }

@@ -7,7 +7,9 @@ class CustomIndicatorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Align(
-          alignment: Alignment.center, child: CircularProgressIndicator()),
+        alignment: Alignment.center,
+        child: CircularProgressIndicator(),
+      ),
     );
   }
 }

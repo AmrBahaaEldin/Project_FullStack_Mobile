@@ -1,14 +1,14 @@
-
-
+import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:zalada_app/features/auth/presentation/view/register_view.dart';
+import 'package:zalada_app/features/intro/presentation/view/onboarding_view.dart';
 
 import '../../features/auth/presentation/view/login_view.dart';
-import '../../features/intro/presentation/view/onboarding_view.dart';
 
 class RouterApp {
   RouterApp._();
 
-  static const String onBoarding = '/';
+  static const String registerTest = '/';
   //static const String onBoarding = '/onBoarding';
   static const String register = '/register';
   static const String login = '/login';
@@ -21,27 +21,27 @@ class RouterApp {
   static GoRouter router = GoRouter(
     routes: <RouteBase>[
       GoRoute(
-        path: onBoarding,
+        path: registerTest,
         builder: (context, state) {
-          return const OnboardingView();
+          return const RegisterView();
         },
       ),
-      // GoRoute(
-      //   path: login,
-      //   pageBuilder: (context, state) {
-      //     return CustomTransitionPage(
-      //       transitionsBuilder:
-      //           (context, animation, secondaryAnimation, child) =>
-      //               FadeTransition(opacity: animation, child: child),
-      //       transitionDuration: const Duration(milliseconds: 1000),
-      //       child: const LoginView(),
-      //     );
-      //   },
-      // ),
       GoRoute(
         path: login,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) =>
+                    FadeTransition(opacity: animation, child: child),
+            transitionDuration: const Duration(milliseconds: 1000),
+            child: const LoginView(),
+          );
+        },
+      ),
+      GoRoute(
+        path: home,
         builder: (context, state) {
-          return const LoginView();
+          return const OnboardingView();
         },
       ),
       // GoRoute(
