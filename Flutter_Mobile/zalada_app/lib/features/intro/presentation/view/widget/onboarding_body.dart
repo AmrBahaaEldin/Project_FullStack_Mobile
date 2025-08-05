@@ -34,12 +34,14 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                   currentIndex = index;
                 });
               },
-
               enableInfiniteScroll: false,
               scrollPhysics: const NeverScrollableScrollPhysics(),
-              height: 480.h,
-              autoPlay: false,
+              height: 400.h,
+    
               viewportFraction: 1.0,
+    
+              enlargeCenterPage: true,
+              autoPlay: false,
             ),
             itemCount: OnboardingData.onboardingData.length,
             itemBuilder: (context, index, realIndex) => OnboardingItem(
@@ -77,7 +79,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                         percent += 0.33;
                       }
                     },
-
+    
                     icon: const Icon(
                       Icons.arrow_forward,
                       color: ColorApp.light100,

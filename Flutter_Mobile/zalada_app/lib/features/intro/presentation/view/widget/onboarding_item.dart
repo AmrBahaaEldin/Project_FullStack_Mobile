@@ -14,11 +14,7 @@ class OnboardingItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(
-          width: 299.w,
-          height: 299.h,
-          child: SvgPicture.asset(onBoardingModel.image),
-        ),
+        SizedBox(height: 250.h, child: SvgPicture.asset(onBoardingModel.image)),
         SizedBox(height: 40.h),
         Text(onBoardingModel.title, style: StylesTextApp.textStyle32),
         SizedBox(height: 16.h),

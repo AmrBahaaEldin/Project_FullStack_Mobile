@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 
-
 class ApiService {
   ApiService(this.dio);
   final Dio dio;
@@ -18,3 +17,5 @@ class ApiService {
     return response;
   }
 }
+
+

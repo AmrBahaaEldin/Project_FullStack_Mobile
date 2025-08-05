@@ -5,7 +5,7 @@ import 'package:zalada_app/core/utils/api_service.dart';
 import 'package:zalada_app/core/utils/errors/failure.dart';
 import 'package:zalada_app/features/auth/data/model/register_model/register_input_model.dart';
 import 'package:zalada_app/features/auth/data/model/register_model/register_model.dart';
-import 'package:zalada_app/features/auth/data/repo/repo_register.dart';
+import 'package:zalada_app/features/auth/data/repo/repo_register/repo_register.dart';
 
 class RepoRegisterImpl implements RepoRegister {
   RepoRegisterImpl(this.apiService);

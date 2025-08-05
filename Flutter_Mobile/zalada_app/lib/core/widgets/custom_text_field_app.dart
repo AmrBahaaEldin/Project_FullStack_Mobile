@@ -13,10 +13,11 @@ class CustomTextFieldApp extends StatelessWidget {
     this.keyboardType,
     this.controller,
     this.isReadOnly = false,
-    this.isPassword = false,
+    this.notShowPassword = false,
     this.onPressed,
     this.suffixIcon,
     this.colorHint,
+    this.labelText
   });
   final String? textHint;
   final String? Function(String?)? validator;
@@ -24,17 +25,19 @@ class CustomTextFieldApp extends StatelessWidget {
   final Color colorEnableBorder;
   final TextInputType? keyboardType;
   final TextEditingController? controller;
-  final bool isPassword;
+  final bool notShowPassword;
   final void Function()? onPressed;
   final Widget? suffixIcon;
   final Color? colorHint;
   final bool isReadOnly;
+  final String ?labelText ;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      
       keyboardType: keyboardType ?? TextInputType.text,
       controller: controller,
-      obscureText: isPassword,
+      obscureText: notShowPassword,
       readOnly: isReadOnly,
       onTap: onPressed,
       validator: validator,
@@ -42,6 +45,7 @@ class CustomTextFieldApp extends StatelessWidget {
       cursorColor: ColorApp.violet40,
       scrollPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       decoration: InputDecoration(
+        labelText: labelText,
         suffixIcon: suffixIcon,
         hint: Text(
           textHint ?? "",

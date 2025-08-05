@@ -24,6 +24,7 @@ class OnboardingView extends StatelessWidget {
         ],
       ),
       body: const OnboardingBody(),
+     
     );
   }
 }

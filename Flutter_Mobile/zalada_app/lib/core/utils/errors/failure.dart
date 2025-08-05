@@ -28,11 +28,12 @@ class ServerFailure extends Failure {
         return ServerFailure('ConnectionError with ApiServer');
       case DioExceptionType.unknown:
         return ServerFailure('Unknown with ApiServer');
+     
     }
   }
   factory ServerFailure.formResponse(int statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(response["error"]["errors"][0]["message"]);
+      return ServerFailure(response["error"]?["errors"]?[0]?["message"] ?? "An error occurred");
     } else if (statusCode == 404) {
       return ServerFailure("not found ,please try again later");
     }

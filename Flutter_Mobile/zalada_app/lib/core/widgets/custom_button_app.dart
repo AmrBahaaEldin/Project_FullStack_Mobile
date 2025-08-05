@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:zalada_app/core/constant/image_app.dart';
+
 import '../constant/color_app.dart';
 import '../constant/style_app.dart';
 
