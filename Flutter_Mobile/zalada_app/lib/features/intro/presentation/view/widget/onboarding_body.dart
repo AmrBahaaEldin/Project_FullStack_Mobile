@@ -37,9 +37,9 @@ class _OnboardingBodyState extends State<OnboardingBody> {
               enableInfiniteScroll: false,
               scrollPhysics: const NeverScrollableScrollPhysics(),
               height: 400.h,
-    
+
               viewportFraction: 1.0,
-    
+
               enlargeCenterPage: true,
               autoPlay: false,
             ),
@@ -79,7 +79,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                         percent += 0.33;
                       }
                     },
-    
+
                     icon: const Icon(
                       Icons.arrow_forward,
                       color: ColorApp.light100,

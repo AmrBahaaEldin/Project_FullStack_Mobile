@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:zalada_app/features/auth/presentation/view/register_view.dart';
 import 'package:zalada_app/features/intro/presentation/view/onboarding_view.dart';
-import 'package:zalada_app/features/navigation/presentation/view/navigation_view.dart';
+import 'package:zalada_app/features/navigation/presentation/view/navigation_main_view.dart';
 import '../../features/auth/presentation/view/login_view.dart';
 
 class RouterApp {
@@ -43,7 +43,7 @@ class RouterApp {
       GoRoute(
         path: mainNavigation,
         builder: (context, state) {
-          return const NavigationMainView();
+          return  NavigationMainView();
         },
       ),
       ///////////////////////////
