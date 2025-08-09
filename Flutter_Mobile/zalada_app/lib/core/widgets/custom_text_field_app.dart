@@ -17,7 +17,7 @@ class CustomTextFieldApp extends StatelessWidget {
     this.onPressed,
     this.suffixIcon,
     this.colorHint,
-    this.labelText
+    this.labelText,
   });
   final String? textHint;
   final String? Function(String?)? validator;
@@ -30,11 +30,10 @@ class CustomTextFieldApp extends StatelessWidget {
   final Widget? suffixIcon;
   final Color? colorHint;
   final bool isReadOnly;
-  final String ?labelText ;
+  final String? labelText;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      
       keyboardType: keyboardType ?? TextInputType.text,
       controller: controller,
       obscureText: notShowPassword,
@@ -52,6 +51,10 @@ class CustomTextFieldApp extends StatelessWidget {
           style: StylesTextApp.textStyle16.copyWith(
             color: colorHint ?? ColorApp.violet40,
           ),
+        ),
+        border: const UnderlineInputBorder(
+          borderRadius: BorderRadius.zero,
+          borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: colorFocusedBorder, width: 1.w),

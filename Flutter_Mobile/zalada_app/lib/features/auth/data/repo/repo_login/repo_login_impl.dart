@@ -12,20 +12,22 @@ class RepoLoginImpl implements RepoLogin {
   final ApiService apiService;
   @override
   Future<Either<Failure, LoginModel>> postLogin(
-    LoginInputModel loginInputModel,) async {
+    LoginInputModel loginInputModel,
+  ) async {
     try {
       final response = await apiService.post(
-        endPoint:ApiKeyApp.endPointLogin,
-        baseurl:ApiKeyApp.baseUrlKey,
-        data: LoginInputModel(userName:loginInputModel.userName,
-        password: loginInputModel.password).toJson(),
+        endPoint: ApiKeyApp.endPointLogin,
+        baseurl: ApiKeyApp.baseUrlKey,
+        data: LoginInputModel(
+          userName: loginInputModel.userName,
+          password: loginInputModel.password,
+        ).toJson(),
       );
       return right(LoginModel.fromJson(response.data));
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e));
-    }
-    catch (e) {
-      return left(ServerFailure( e.toString()));
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
     }
   }
 }

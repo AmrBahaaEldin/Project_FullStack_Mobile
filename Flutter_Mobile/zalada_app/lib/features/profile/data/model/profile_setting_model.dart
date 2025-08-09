@@ -10,7 +10,7 @@ class ProfileSettingsModel {
     required this.title,
     required this.iconLeading,
     required this.onPressed,
-   required this.iconTrailing,
+    required this.iconTrailing,
     this.color,
   });
 }

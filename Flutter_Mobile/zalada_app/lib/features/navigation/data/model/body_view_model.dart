@@ -3,7 +3,7 @@ import 'package:zalada_app/features/profile/presentation/view/profile_body_view.
 
 class BodyViewModel {
   BodyViewModel._();
-  static List<Widget>boyWidgets=[
+  static List<Widget> boyWidgets = [
     const Center(child: Text('🏠 Home', style: TextStyle(fontSize: 24))),
     const Center(child: Text('🔍 Search', style: TextStyle(fontSize: 24))),
     const Center(child: Text('❤️ Favorites', style: TextStyle(fontSize: 24))),

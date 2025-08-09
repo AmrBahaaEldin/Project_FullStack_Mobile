@@ -64,11 +64,18 @@ class LoginBody extends StatelessWidget {
                   ),
                   SizedBox(height: 8.h),
                   CustomTextFieldApp(
+                    notShowPassword: context
+                        .watch<LoginCubit>()
+                        .notShowPassword,
                     colorEnableBorder: ColorApp.light60,
                     colorFocusedBorder: ColorApp.light60,
                     suffixIcon: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.visibility_rounded),
+                      onPressed: () {
+                        context.read<LoginCubit>().togglePasswordVisibility();
+                      },
+                      icon: context.watch<LoginCubit>().notShowPassword
+                          ? const Icon(Icons.visibility_off_rounded)
+                          : const Icon(Icons.visibility_rounded),
                     ),
                     textHint: "Password",
                     colorHint: ColorApp.dark25,

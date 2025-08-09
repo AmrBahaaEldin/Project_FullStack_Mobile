@@ -4,5 +4,7 @@ import 'package:zalada_app/features/auth/data/model/login_model/login_input_mode
 import 'package:zalada_app/features/auth/data/model/login_model/login_model.dart';
 
 abstract class RepoLogin {
-  Future<Either<Failure, LoginModel>> postLogin( LoginInputModel loginInputModel);
+  Future<Either<Failure, LoginModel>> postLogin(
+    LoginInputModel loginInputModel,
+  );
 }

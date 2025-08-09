@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zalada_app/core/constant/router_app.dart';
 import 'package:zalada_app/core/utils/bloc_observer.dart';
+import 'package:zalada_app/core/utils/cache_db_app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
+  CacheApp.init();
   Bloc.observer = MyBlocObserver();
   // Initialize service locator
   runApp(const ZaladaApp());

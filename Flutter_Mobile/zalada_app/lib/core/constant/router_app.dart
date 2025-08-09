@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:zalada_app/features/auth/presentation/view/register_view.dart';
 import 'package:zalada_app/features/intro/presentation/view/onboarding_view.dart';
 import 'package:zalada_app/features/navigation/presentation/view/navigation_main_view.dart';
+import 'package:zalada_app/features/profile/presentation/view/edit_profile_view.dart';
 import '../../features/auth/presentation/view/login_view.dart';
 
 class RouterApp {
@@ -11,9 +12,12 @@ class RouterApp {
   static const String onBoarding = '/onBoarding';
   static const String register = '/register';
   static const String login = '/login';
-  static const String mainNavigation = '/';
-  static const String homeView = '/homeView';
-  static const String setupAccount = '/setupAccount';
+  static const String mainNavigation = '/mainNavigation';
+  // static const String homeView = '/homeView';
+  // static const String searchView = '/searchView';
+  // static const String favouriteView = '/favouriteView';
+  // static const String cartView = '/cartView';
+  static const String editProfile = '/';
   static const String addNewAccount = '/addNewAccount';
   static const String successRegister = '/successRegister';
 
@@ -43,13 +47,17 @@ class RouterApp {
       GoRoute(
         path: mainNavigation,
         builder: (context, state) {
-          return  NavigationMainView();
+          return const NavigationMainView();
         },
       ),
       ///////////////////////////
       GoRoute(
         path: register,
         builder: (context, state) => const RegisterView(),
+      ),
+      GoRoute(
+        path: editProfile,
+        builder: (context, state) => const ProfileEditView(),
       ),
     ],
   );

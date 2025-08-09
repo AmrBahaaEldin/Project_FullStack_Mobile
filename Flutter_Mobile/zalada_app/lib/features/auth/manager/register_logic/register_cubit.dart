@@ -14,17 +14,16 @@ class RegisterCubit extends Cubit<RegisterState> {
   bool notShowPassword_1 = false;
   bool notShowPassword_2 = false;
   void togglePasswordVisibility({required int switchValue}) {
-    switch(switchValue){
+    switch (switchValue) {
       case 1:
-      notShowPassword_1 = !notShowPassword_1;
-       emit(RegisterInitial());
-       break;
+        notShowPassword_1 = !notShowPassword_1;
+        emit(RegisterInitial());
+        break;
       case 2:
-      notShowPassword_2 = !notShowPassword_2;
-       emit(RegisterInitial());
-       break;
+        notShowPassword_2 = !notShowPassword_2;
+        emit(RegisterInitial());
+        break;
     }
-    
 
     // Emit initial state to rebuild UI
   }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:zalada_app/core/constant/color_app.dart';
-import 'package:zalada_app/core/constant/style_app.dart';
+
+import 'package:zalada_app/features/navigation/data/model/app_bar_view_model.dart';
 import 'package:zalada_app/features/navigation/data/model/body_view_model.dart';
 import 'package:zalada_app/features/navigation/manager/navigation_logic/main_navigation_cubit.dart';
 import 'package:zalada_app/features/navigation/manager/navigation_logic/main_navigation_state.dart';
@@ -18,22 +19,10 @@ class NavigationMainView extends StatelessWidget {
       child: BlocBuilder<MainNavigationCubit, MainNavigationState>(
         builder: (context, state) {
           return Scaffold(
-            appBar: AppBar(
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () {
-                  GoRouter.of(context).pop();
-                },
-              ),
-              centerTitle: true,
-              actions: [
-                IconButton(onPressed: () {}, icon: const Icon(Icons.mode_edit)),
-              ],
-              title: const Text(
-                'Edit Profile',
-                style: StylesTextApp.textStyle16,
-              ),
-            ),
+            appBar:
+                AppBarViewModel.appBarWidget[context
+                    .watch<MainNavigationCubit>()
+                    .currentIndex],
             body: BodyViewModel
                 .boyWidgets[context.watch<MainNavigationCubit>().currentIndex],
             bottomNavigationBar: GNav(

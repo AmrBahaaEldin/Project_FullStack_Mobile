@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:zalada_app/core/constant/router_app.dart';
 import 'package:zalada_app/core/utils/api_service.dart';
+import 'package:zalada_app/core/utils/cache_db_app.dart';
 import 'package:zalada_app/core/widgets/toast_message_app.dart';
 import 'package:zalada_app/features/auth/data/repo/repo_login/repo_login_impl.dart';
 import 'package:zalada_app/features/auth/manager/login_logic/cubit/login_cubit.dart';
@@ -20,13 +21,25 @@ class LoginView extends StatelessWidget {
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginSuccess) {
-            ToastMessage.showToast(backGroundColor: Colors.green, message: state.data.accessToken!);
+            ToastMessage.showToast(
+              backGroundColor: Colors.green,
+              message: "Login Success",
+            );
+            CacheApp.saveData(
+              key: "accessToken",
+              value: state.data.accessToken,
+            );
+            debugPrint(CacheApp.getData(key: "accessToken"));
+
             GoRouter.of(context).go(RouterApp.mainNavigation);
-          }  if (state is LoginFailure) {
-            // Handle login failure
-          ToastMessage.showToast(backGroundColor: Colors.red, message: state.failure.errorMessage);
           }
-          
+          if (state is LoginFailure) {
+            // Handle login failure
+            ToastMessage.showToast(
+              backGroundColor: Colors.red,
+              message: state.failure.errorMessage,
+            );
+          }
         },
         builder: (context, state) {
           return const Scaffold(body: LoginBody());

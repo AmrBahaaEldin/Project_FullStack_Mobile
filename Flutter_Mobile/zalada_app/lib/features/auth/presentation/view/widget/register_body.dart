@@ -148,13 +148,13 @@ class RegisterBody extends StatelessWidget {
                   SizedBox(height: 24.h),
                   CustomButtonApp(
                     text: "Register",
-                    onPressed: ()  {
+                    onPressed: () {
                       if (context
                           .read<RegisterCubit>()
                           .formKey
                           .currentState!
                           .validate()) {
-                         context.read<RegisterCubit>().fetchRegister(
+                        context.read<RegisterCubit>().fetchRegister(
                           email: context
                               .read<RegisterCubit>()
                               .emailController
@@ -164,7 +164,7 @@ class RegisterBody extends StatelessWidget {
                               .passwordController
                               .text,
                         );
-                        
+
                         context.read<RegisterCubit>().emailController.clear();
                         context
                             .read<RegisterCubit>()

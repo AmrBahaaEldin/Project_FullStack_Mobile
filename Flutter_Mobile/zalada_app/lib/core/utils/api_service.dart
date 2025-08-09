@@ -16,6 +16,20 @@ class ApiService {
 
     return response;
   }
+
+  Future<dynamic> get({
+    required String endpoint,
+    required String baseUrl,
+    String? author,
+  }) async {
+    final response = await dio.get(
+      baseUrl + endpoint,
+
+      options: Options(
+        contentType: Headers.jsonContentType,
+        headers: {"Authorization": "Bearer $author"},
+      ),
+    );
+    return response;
+  }
 }
-
-
