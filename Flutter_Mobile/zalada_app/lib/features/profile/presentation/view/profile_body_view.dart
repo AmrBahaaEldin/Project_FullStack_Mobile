@@ -11,8 +11,8 @@ import 'package:zalada_app/core/utils/cache_db_app.dart';
 import 'package:zalada_app/features/profile/data/model/profile_setting_model.dart';
 import 'package:zalada_app/features/profile/data/model/profile_settings_data_model.dart';
 import 'package:zalada_app/features/profile/data/repo/repo_profile/repo_profile_impl.dart';
-import 'package:zalada_app/features/profile/manager/logic/cubit/profile_cubit.dart';
-import 'package:zalada_app/features/profile/manager/logic/cubit/profile_state.dart';
+import 'package:zalada_app/features/profile/manager/logic/profile_logic/profile_cubit.dart';
+import 'package:zalada_app/features/profile/manager/logic/profile_logic/profile_state.dart';
 import 'package:zalada_app/features/profile/presentation/view/widget/profile_item.dart';
 
 class ProfileBodyView extends StatelessWidget {
@@ -22,17 +22,20 @@ class ProfileBodyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) {
+        
         final String auth = CacheApp.getData(key: "accessToken");
         debugPrint(
           "________________________________________ProfileView_______________",
         );
-        
+
         return ProfileCubit(RepoProfileImpl(ApiService(Dio())))
           ..fecthDataProfile(author: auth);
+         
       },
       child: BlocBuilder<ProfileCubit, ProfileState>(
         builder: (context, state) {
           if (state is ProfileLoaded) {
+           
             return CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(
@@ -55,6 +58,7 @@ class ProfileBodyView extends StatelessWidget {
                       children: [
                         //change Dynamic image Profile Please Fast Change
                         CircleAvatar(
+                           
                           radius: 50.r,
                           child: Image.network(
                             state.profileShow.image!,

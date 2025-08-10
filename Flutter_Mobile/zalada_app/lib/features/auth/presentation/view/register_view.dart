@@ -25,6 +25,8 @@ class RegisterView extends StatelessWidget {
               backGroundColor: Colors.green,
               message: "Register Success",
             );
+            controllerClear(context);
+
             GoRouter.of(context).replace(RouterApp.login);
           }
           if (state is RegisterError) {
@@ -43,5 +45,11 @@ class RegisterView extends StatelessWidget {
         },
       ),
     );
+  }
+
+  void controllerClear(BuildContext context) {
+    context.read<RegisterCubit>().emailController.clear();
+    context.read<RegisterCubit>().passwordController.clear();
+    context.read<RegisterCubit>().confirmPasswordController.clear();
   }
 }

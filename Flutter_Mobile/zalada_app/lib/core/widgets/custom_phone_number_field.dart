@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zalada_app/core/constant/color_app.dart';
-import 'package:zalada_app/core/constant/style_app.dart';
 
 class CustomPhoneNumberField extends StatelessWidget {
   const CustomPhoneNumberField({
@@ -9,12 +8,18 @@ class CustomPhoneNumberField extends StatelessWidget {
     this.borderRadius,
     this.border,
     this.cursorColor,
-    this.hint,
+    this.controllerNumber,
+    this.hintNumber,
+    this.controllerCode,
+    this.hintCode,
   });
   final BorderRadiusGeometry? borderRadius;
   final BoxBorder? border;
   final Color? cursorColor;
-  final Widget? hint;
+  final String? hintNumber;
+  final String? hintCode;
+  final TextEditingController? controllerNumber;
+  final TextEditingController? controllerCode;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,6 +33,7 @@ class CustomPhoneNumberField extends StatelessWidget {
         children: [
           DropdownMenu(
             inputDecorationTheme: InputDecorationTheme(
+              hintStyle: const TextStyle(color: ColorApp.dark25),
               disabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),
                 borderSide: const BorderSide(color: ColorApp.blue60),
@@ -42,8 +48,10 @@ class CustomPhoneNumberField extends StatelessWidget {
               ),
             ),
 
-            controller: TextEditingController(),
-            hintText: "code",
+            controller: controllerCode,
+
+            hintText: hintCode,
+            textStyle: const TextStyle(color: ColorApp.dark100),
             closeBehavior: DropdownMenuCloseBehavior.all,
             dropdownMenuEntries: [
               const DropdownMenuEntry(value: "+20", label: "+20"),
@@ -55,21 +63,15 @@ class CustomPhoneNumberField extends StatelessWidget {
           Expanded(
             child: TextFormField(
               keyboardType: TextInputType.number,
-              controller: TextEditingController(),
+              controller: controllerNumber,
               cursorColor: cursorColor ?? ColorApp.blue60,
               decoration: InputDecoration(
                 border: const UnderlineInputBorder(
                   borderRadius: BorderRadius.zero,
                   borderSide: BorderSide.none,
                 ),
-                hint:
-                    hint ??
-                    Text(
-                      "123456789",
-                      style: StylesTextApp.textStyle16.copyWith(
-                        color: ColorApp.dark25,
-                      ),
-                    ),
+                hintStyle: const TextStyle(color: ColorApp.dark25),
+                hintText: hintNumber,
               ),
             ),
           ),

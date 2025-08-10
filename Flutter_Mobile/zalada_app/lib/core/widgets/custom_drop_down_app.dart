@@ -4,7 +4,9 @@ import 'package:zalada_app/core/constant/color_app.dart';
 import 'package:zalada_app/core/constant/style_app.dart';
 
 class CustomDropDown extends StatelessWidget {
-  const CustomDropDown({super.key});
+  const CustomDropDown({super.key, this.controller, this.hintText});
+  final TextEditingController? controller;
+  final String? hintText;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class CustomDropDown extends StatelessWidget {
         DropdownMenu(
           width: double.infinity,
           inputDecorationTheme: InputDecorationTheme(
+            hintStyle: const TextStyle(color: ColorApp.dark25),
             disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12.r),
               borderSide: const BorderSide(color: ColorApp.blue60),
@@ -33,8 +36,9 @@ class CustomDropDown extends StatelessWidget {
             ),
           ),
 
-          controller: TextEditingController(),
-          hintText: "Type",
+          controller: controller,
+          hintText: hintText,
+
           closeBehavior: DropdownMenuCloseBehavior.all,
           dropdownMenuEntries: [
             const DropdownMenuEntry(value: "Male", label: "Male"),

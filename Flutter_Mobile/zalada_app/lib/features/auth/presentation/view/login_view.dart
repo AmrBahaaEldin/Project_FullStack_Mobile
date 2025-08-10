@@ -30,6 +30,7 @@ class LoginView extends StatelessWidget {
               value: state.data.accessToken,
             );
             debugPrint(CacheApp.getData(key: "accessToken"));
+             controllerClear(context) ;
 
             GoRouter.of(context).go(RouterApp.mainNavigation);
           }
@@ -46,5 +47,9 @@ class LoginView extends StatelessWidget {
         },
       ),
     );
+  }
+    void controllerClear(BuildContext context) {
+     context.read<LoginCubit>().userNameController.clear();
+    context.read<LoginCubit>().passwordController.clear();
   }
 }

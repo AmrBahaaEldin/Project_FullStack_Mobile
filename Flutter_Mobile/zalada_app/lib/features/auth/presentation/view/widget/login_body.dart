@@ -117,8 +117,7 @@ class LoginBody extends StatelessWidget {
                                 .text,
                           ),
                         );
-                        context.read<LoginCubit>().userNameController.clear();
-                        context.read<LoginCubit>().passwordController.clear();
+                       
                         FocusScope.of(context).unfocus();
                       }
                     },
@@ -184,4 +183,6 @@ class LoginBody extends StatelessWidget {
       ),
     );
   }
+
+
 }

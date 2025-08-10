@@ -17,7 +17,7 @@ class RepoProfileImpl implements RepoProfile {
         baseUrl: ApiKeyApp.baseUrlKey,
         author: author,
       );
-   
+
       return right(ProfileShow.fromJson(response.data));
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e));

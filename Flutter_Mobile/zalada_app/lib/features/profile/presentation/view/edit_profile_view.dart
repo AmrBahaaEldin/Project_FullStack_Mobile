@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
 
 import 'package:zalada_app/core/constant/style_app.dart';

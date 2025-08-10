@@ -165,15 +165,7 @@ class RegisterBody extends StatelessWidget {
                               .text,
                         );
 
-                        context.read<RegisterCubit>().emailController.clear();
-                        context
-                            .read<RegisterCubit>()
-                            .passwordController
-                            .clear();
-                        context
-                            .read<RegisterCubit>()
-                            .confirmPasswordController
-                            .clear();
+                        
                         FocusScope.of(context).unfocus();
                       }
                     },
@@ -238,4 +230,6 @@ class RegisterBody extends StatelessWidget {
       ),
     );
   }
+
+ 
 }

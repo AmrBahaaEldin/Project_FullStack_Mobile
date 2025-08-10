@@ -32,4 +32,18 @@ class ApiService {
     );
     return response;
   }
+
+  Future<dynamic> put({
+    required String endPoint,
+    required String baseurl,
+    required int idUser,
+    Object? data,
+  }) async {
+    final response = await dio.put(
+      "$baseurl$endPoint$idUser",
+      options: Options(contentType: Headers.jsonContentType),
+      data: data,
+    );
+    return response;
+  }
 }
