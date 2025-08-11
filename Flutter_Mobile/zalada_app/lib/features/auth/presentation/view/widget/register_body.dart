@@ -165,7 +165,6 @@ class RegisterBody extends StatelessWidget {
                               .text,
                         );
 
-                        
                         FocusScope.of(context).unfocus();
                       }
                     },
@@ -230,6 +229,4 @@ class RegisterBody extends StatelessWidget {
       ),
     );
   }
-
- 
 }

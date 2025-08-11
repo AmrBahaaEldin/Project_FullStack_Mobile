@@ -15,12 +15,12 @@ class EditProfileCubit extends Cubit<EditProfileState> {
   final TextEditingController emailAddressController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController codeCountryController = TextEditingController();
-   String? textFirstNameHint;
-   String? textEmailHint;
-   String? numberPhoneHint;
-   String? codeCountryHint;
-   String? genderHint;
-   String? birthdayHint;
+  String? textFirstNameHint;
+  String? textEmailHint;
+  String? numberPhoneHint;
+  String? codeCountryHint;
+  String? genderHint;
+  String? birthdayHint;
 
   String get fullPhone => codeCountryController.text + phoneController.text;
 

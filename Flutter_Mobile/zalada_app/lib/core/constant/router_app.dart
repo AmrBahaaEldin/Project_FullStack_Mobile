@@ -11,8 +11,8 @@ class RouterApp {
 
   static const String onBoarding = '/onBoarding';
   static const String register = '/register';
-  static const String login = '/';
-  static const String mainNavigation = '/mainNavigation';
+  static const String login = '/login';
+  static const String mainNavigation = '/';
   // static const String homeView = '/homeView';
   // static const String searchView = '/searchView';
   // static const String favouriteView = '/favouriteView';

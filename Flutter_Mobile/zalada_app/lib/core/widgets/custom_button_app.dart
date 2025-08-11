@@ -13,6 +13,7 @@ class CustomButtonApp extends StatelessWidget {
     this.isTwins = false,
     this.onPressed,
     this.widget,
+    this.width,
   });
 
   final String text;
@@ -20,15 +21,15 @@ class CustomButtonApp extends StatelessWidget {
   final Color? boxColor;
   final bool isTwins;
   final Widget? widget;
-  final void Function()?
-  onPressed; // Assuming this is a flag for some condition
+  final void Function()? onPressed;
+  final double? width; // Assuming this is a flag for some condition
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
       height: 56.h,
-      width: double.infinity,
+      width: width,
       decoration: BoxDecoration(
         color: boxColor ?? ColorApp.violet100,
         borderRadius: BorderRadius.circular(16.r),
@@ -37,7 +38,7 @@ class CustomButtonApp extends StatelessWidget {
           ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                isTwins ? widget! : const Text(""),
+                if (widget != null) widget!,
                 SizedBox(width: 10.w),
                 Text(
                   text,

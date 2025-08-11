@@ -22,7 +22,6 @@ class ProfileBodyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) {
-        
         final String auth = CacheApp.getData(key: "accessToken");
         debugPrint(
           "________________________________________ProfileView_______________",
@@ -30,12 +29,10 @@ class ProfileBodyView extends StatelessWidget {
 
         return ProfileCubit(RepoProfileImpl(ApiService(Dio())))
           ..fecthDataProfile(author: auth);
-         
       },
       child: BlocBuilder<ProfileCubit, ProfileState>(
         builder: (context, state) {
           if (state is ProfileLoaded) {
-           
             return CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(
@@ -58,7 +55,6 @@ class ProfileBodyView extends StatelessWidget {
                       children: [
                         //change Dynamic image Profile Please Fast Change
                         CircleAvatar(
-                           
                           radius: 50.r,
                           child: Image.network(
                             state.profileShow.image!,

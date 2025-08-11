@@ -105,19 +105,8 @@ class LoginBody extends StatelessWidget {
                           .formKey
                           .currentState!
                           .validate()) {
-                        context.read<LoginCubit>().fetchLogin(
-                          LoginInputModel(
-                            userName: context
-                                .read<LoginCubit>()
-                                .userNameController
-                                .text,
-                            password: context
-                                .read<LoginCubit>()
-                                .passwordController
-                                .text,
-                          ),
-                        );
-                       
+                        fetchLogin(context);
+
                         FocusScope.of(context).unfocus();
                       }
                     },
@@ -184,5 +173,12 @@ class LoginBody extends StatelessWidget {
     );
   }
 
-
+  void fetchLogin(BuildContext context) {
+    context.read<LoginCubit>().fetchLogin(
+      LoginInputModel(
+        userName: context.read<LoginCubit>().userNameController.text,
+        password: context.read<LoginCubit>().passwordController.text,
+      ),
+    );
+  }
 }

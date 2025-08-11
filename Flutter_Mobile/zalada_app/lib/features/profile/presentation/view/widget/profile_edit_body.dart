@@ -37,15 +37,12 @@ class ProfileEditBody extends StatelessWidget {
             );
             controllerClear(context);
 
-            Future.delayed(const Duration(seconds: 3),
-            () {
-              if(!context.mounted){
+            Future.delayed(const Duration(seconds: 3), () {
+              if (!context.mounted) {
                 return;
               }
               GoRouter.of(context).pop();
-            } ,
-            );
-           
+            });
           }
           if (state is EditProfileFailure) {
             ToastMessage.showToast(
