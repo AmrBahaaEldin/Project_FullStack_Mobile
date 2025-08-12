@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zalada_app/features/home/data/model/category/category_item_data.dart';
 import 'package:zalada_app/features/home/data/model/category/category_item_model.dart';
 import '../../../../../core/constant/style_app.dart';
 

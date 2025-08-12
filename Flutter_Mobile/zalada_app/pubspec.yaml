@@ -34,6 +34,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   custom_circular_progress: ^1.0.1
   dio: ^5.8.0+1
+  easy_refresh: ^3.4.0
   extended_svg_picture: ^1.0.0
   flutter:
     sdk: flutter
@@ -52,6 +53,7 @@ dependencies:
   percent_indicator: ^4.2.5
   percent_indicator_circle: ^0.0.5
   shared_preferences: ^2.5.3
+  smooth_page_indicator: ^1.2.1
 
 
 dev_dependencies:

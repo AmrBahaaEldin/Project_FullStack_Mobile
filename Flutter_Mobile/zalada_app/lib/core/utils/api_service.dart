@@ -21,9 +21,11 @@ class ApiService {
     required String endpoint,
     required String baseUrl,
     String? author,
+    String? queryParameters,
   }) async {
     final response = await dio.get(
       baseUrl + endpoint,
+      queryParameters: {"q": queryParameters},
 
       options: Options(
         contentType: Headers.jsonContentType,

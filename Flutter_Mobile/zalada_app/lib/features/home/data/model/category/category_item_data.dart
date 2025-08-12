@@ -8,7 +8,7 @@ class CategoryItemData {
   static List<CategoryItemModel> dataItem = [
     CategoryItemModel(
       "tops",
-      ImageApp.allPng,
+      ImageApp.topspng,
       ColorApp.blue80,
       ColorApp.light100,
       ColorApp.light100,

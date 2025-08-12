@@ -18,6 +18,7 @@ class CustomTextFieldApp extends StatelessWidget {
     this.suffixIcon,
     this.colorHint,
     this.labelText,
+    this.onChanged,
   });
   final String? textHint;
   final String? Function(String?)? validator;
@@ -28,12 +29,14 @@ class CustomTextFieldApp extends StatelessWidget {
   final bool notShowPassword;
   final void Function()? onPressed;
   final Widget? suffixIcon;
+  final void Function(String)? onChanged;
   final Color? colorHint;
   final bool isReadOnly;
   final String? labelText;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       keyboardType: keyboardType ?? TextInputType.text,
       controller: controller,
       obscureText: notShowPassword,
