@@ -19,7 +19,6 @@ import 'package:zalada_app/features/home/manager/logic/slider_banner/cubit/slide
 import 'package:zalada_app/features/home/presentation/view/widget/banner_hot_deal.dart';
 import 'package:zalada_app/features/home/presentation/view/widget/category_item.dart';
 import 'package:zalada_app/features/home/presentation/view/widget/grid_produce.dart';
-import 'package:zalada_app/features/home/presentation/view/widget/item_produces.dart';
 
 class HomeBodyView extends StatelessWidget {
   const HomeBodyView({super.key});
