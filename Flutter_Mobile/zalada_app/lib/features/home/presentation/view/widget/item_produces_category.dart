@@ -6,8 +6,8 @@ import '../../../../../core/constant/color_app.dart';
 import '../../../../../core/constant/style_app.dart';
 import '../../../data/model/home_produces_model/product.dart';
 
-class ItemProduces extends StatelessWidget {
-  const ItemProduces({required this.data, super.key});
+class ItemProducesCategory extends StatelessWidget {
+  const ItemProducesCategory({required this.data, super.key});
   final Product data;
 
   @override
@@ -53,31 +53,29 @@ class ItemProduces extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 10),
-              if (data.discountPercentage != null)
-                Text(
-                  "\$${data.price}",
-                  style: StylesTextApp.textStyle16.copyWith(
-                    decoration: TextDecoration.lineThrough,
-                    color: ColorApp.dark25,
-                  ),
+       if (data.discountPercentage!=null  )   Text(
+                "\$${data.price}",
+                style: StylesTextApp.textStyle16.copyWith(
+                  decoration: TextDecoration.lineThrough,
+                  color: ColorApp.dark25,
                 ),
+              ),
             ],
           ),
           SizedBox(height: 8.h),
-          if (data.discountPercentage != null)
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12.r),
-                color: ColorApp.yellow100,
-              ),
-              child: Text(
-                "NEW - ${data.discountPercentage}% OFF",
-                style: StylesTextApp.textStyle12.copyWith(
-                  color: ColorApp.light80,
-                ),
+          if (data.discountPercentage!=null  )  Container(
+            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12.r),
+              color: ColorApp.yellow100,
+            ),
+            child: Text(
+              "NEW - ${data.discountPercentage}% OFF",
+              style: StylesTextApp.textStyle12.copyWith(
+                color: ColorApp.light80,
               ),
             ),
+          ),
         ],
       ),
     );

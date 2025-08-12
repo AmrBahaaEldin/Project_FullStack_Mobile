@@ -2,8 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:zalada_app/core/constant/color_app.dart';
+import 'package:zalada_app/core/constant/router_app.dart';
 import 'package:zalada_app/core/constant/style_app.dart';
 import 'package:zalada_app/core/widgets/custom_failure_widget.dart';
 import 'package:zalada_app/core/widgets/custom_loading_widget.dart';
@@ -95,28 +97,35 @@ class HomeBodyView extends StatelessWidget {
           SliverToBoxAdapter(child: SizedBox(height: 15.h)),
           BlocConsumer<HomeCubit, HomeState>(
             listener: (context, state) {
-             if (state is HomeFailure) {
-               ToastMessage.showToast(backGroundColor: ColorApp.red100, message: state.failure.errorMessage);
-               
-             }
-             if (state is HomeLoaded) {
-               ToastMessage.showToast(backGroundColor: ColorApp.green100, message:"Scuceess fetch data ");
-             }
+              if (state is HomeFailure) {
+                ToastMessage.showToast(
+                  backGroundColor: ColorApp.red100,
+                  message: state.failure.errorMessage,
+                );
+              }
+              if (state is HomeLoaded) {
+                ToastMessage.showToast(
+                  backGroundColor: ColorApp.green100,
+                  message: "Scuceess fetch data ",
+                );
+              }
             },
             builder: (context, state) {
-              if (state is HomeLoaded && state.homeProduceModel.products!.isNotEmpty) {
+              if (state is HomeLoaded &&
+                  state.homeProduceModel.products!.isNotEmpty) {
                 return GridProduce(
+               
                   count: state.homeProduceModel.products!.length,
                   data: state.homeProduceModel.products!,
                 );
               } else if (state is HomeFailure) {
                 return SliverToBoxAdapter(
-                  child: CustomFailureWidget(
-                    text: state.failure.errorMessage,
-                  ),
+                  child: CustomFailureWidget(text: state.failure.errorMessage),
                 );
               } else {
-                return const SliverToBoxAdapter(child: CustomLoadingWidget(showLoading: true));
+                return const SliverToBoxAdapter(
+                  child: CustomLoadingWidget(showLoading: true),
+                );
               }
             },
           ),
