@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zalada_app/features/home/data/model/home_produces_model/product.dart';
-import 'package:zalada_app/features/home/presentation/view/widget/item_produce/product_related_list.dart';
+import 'package:zalada_app/features/product/presentation/view/widget/product_related_list.dart';
 
 class RelatedProduce extends StatelessWidget {
   const RelatedProduce({required this.products, super.key});

@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:zalada_app/core/constant/router_app.dart';
 import 'package:zalada_app/features/home/data/model/home_produces_model/product.dart';
-import 'package:zalada_app/features/home/data/model/item_produce/products_data.dart';
 import 'package:zalada_app/features/home/presentation/view/widget/item_produces_category.dart';
+import 'package:zalada_app/features/product/data/model/products_data.dart';
 
 class GridProduce extends StatelessWidget {
   const GridProduce({required this.count, required this.data, super.key});

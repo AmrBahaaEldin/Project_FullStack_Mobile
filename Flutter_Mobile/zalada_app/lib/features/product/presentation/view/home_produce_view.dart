@@ -5,9 +5,10 @@ import 'package:readmore/readmore.dart';
 import 'package:zalada_app/core/constant/color_app.dart';
 import 'package:zalada_app/core/constant/style_app.dart';
 import 'package:zalada_app/core/widgets/custom_button_app.dart';
-import 'package:zalada_app/features/home/data/model/item_produce/products_data.dart';
-import 'package:zalada_app/features/home/presentation/view/widget/item_produce/item_produce.dart';
-import 'package:zalada_app/features/home/presentation/view/widget/item_produce/related_produce.dart';
+import 'package:zalada_app/features/product/data/model/products_data.dart';
+import 'package:zalada_app/features/product/presentation/view/widget/item_produce.dart';
+import 'package:zalada_app/features/product/presentation/view/widget/related_produce.dart';
+
 
 class HomeProduceView extends StatelessWidget {
   const HomeProduceView({required this.produceData, super.key});
