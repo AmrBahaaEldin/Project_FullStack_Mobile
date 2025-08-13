@@ -2,10 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:zalada_app/core/constant/color_app.dart';
-import 'package:zalada_app/core/constant/router_app.dart';
 import 'package:zalada_app/core/constant/style_app.dart';
 import 'package:zalada_app/core/widgets/custom_failure_widget.dart';
 import 'package:zalada_app/core/widgets/custom_loading_widget.dart';
@@ -114,7 +112,6 @@ class HomeBodyView extends StatelessWidget {
               if (state is HomeLoaded &&
                   state.homeProduceModel.products!.isNotEmpty) {
                 return GridProduce(
-               
                   count: state.homeProduceModel.products!.length,
                   data: state.homeProduceModel.products!,
                 );
@@ -124,7 +121,7 @@ class HomeBodyView extends StatelessWidget {
                 );
               } else {
                 return const SliverToBoxAdapter(
-                  child: CustomLoadingWidget(showLoading: true),
+                  child: Center(child: CustomLoadingWidget(showLoading: true)),
                 );
               }
             },

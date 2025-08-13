@@ -11,8 +11,7 @@ class ImageApp {
   static const String banner4 = "assets/png/banner4.png";
   static const String search = "assets/png/search.png";
   static const String loading = "assets/png/loading.png";
-
-
+  static const String cartEmpty = "assets/png/cart.png";
 
   static const String googleLogoPng = "assets/png/google.png";
   static const String facebookLogoPng = "assets/png/facebook.png";

@@ -4,8 +4,5 @@ class ProduceData {
   final Product dataItemProduce;
   final List<Product> dataProducts;
 
-  ProduceData({
-    required this.dataItemProduce,
-    required this.dataProducts,
-  });
+  ProduceData({required this.dataItemProduce, required this.dataProducts});
 }

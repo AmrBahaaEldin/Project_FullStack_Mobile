@@ -53,29 +53,31 @@ class ItemProducesCategory extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 10),
-       if (data.discountPercentage!=null  )   Text(
-                "\$${data.price}",
-                style: StylesTextApp.textStyle16.copyWith(
-                  decoration: TextDecoration.lineThrough,
-                  color: ColorApp.dark25,
+              if (data.discountPercentage != null)
+                Text(
+                  "\$${data.price}",
+                  style: StylesTextApp.textStyle16.copyWith(
+                    decoration: TextDecoration.lineThrough,
+                    color: ColorApp.dark25,
+                  ),
                 ),
-              ),
             ],
           ),
           SizedBox(height: 8.h),
-          if (data.discountPercentage!=null  )  Container(
-            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12.r),
-              color: ColorApp.yellow100,
-            ),
-            child: Text(
-              "NEW - ${data.discountPercentage}% OFF",
-              style: StylesTextApp.textStyle12.copyWith(
-                color: ColorApp.light80,
+          if (data.discountPercentage != null)
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.r),
+                color: ColorApp.yellow100,
+              ),
+              child: Text(
+                "NEW - ${data.discountPercentage}% OFF",
+                style: StylesTextApp.textStyle12.copyWith(
+                  color: ColorApp.light80,
+                ),
               ),
             ),
-          ),
         ],
       ),
     );

@@ -9,7 +9,6 @@ import 'package:zalada_app/features/product/data/model/products_data.dart';
 import 'package:zalada_app/features/product/presentation/view/widget/item_produce.dart';
 import 'package:zalada_app/features/product/presentation/view/widget/related_produce.dart';
 
-
 class HomeProduceView extends StatelessWidget {
   const HomeProduceView({required this.produceData, super.key});
   final ProduceData produceData;

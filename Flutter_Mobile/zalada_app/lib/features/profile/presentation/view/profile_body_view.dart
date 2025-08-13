@@ -78,7 +78,7 @@ class ProfileBodyView extends StatelessWidget {
               );
             } else {
               return const SliverToBoxAdapter(
-                child: CustomLoadingWidget(showLoading: true),
+                child: Center(child: CustomLoadingWidget(showLoading: true)),
               );
             }
           },

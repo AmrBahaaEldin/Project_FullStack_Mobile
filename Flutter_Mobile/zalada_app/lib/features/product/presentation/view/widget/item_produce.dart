@@ -7,7 +7,9 @@ import 'package:zalada_app/features/home/data/model/home_produces_model/product.
 
 class ItemProduce extends StatelessWidget {
   const ItemProduce({
-    required this.data, required this.afterdiscount, super.key,
+    required this.data,
+    required this.afterdiscount,
+    super.key,
   });
 
   final Product data;
@@ -22,9 +24,7 @@ class ItemProduce extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
           data.title!,
-          style: StylesTextApp.textStyle24.copyWith(
-            color: ColorApp.dark100,
-          ),
+          style: StylesTextApp.textStyle24.copyWith(color: ColorApp.dark100),
         ),
         SizedBox(height: 8.h),
         Wrap(
@@ -39,7 +39,7 @@ class ItemProduce extends StatelessWidget {
               ),
             ),
             SizedBox(width: 2.w),
-    
+
             Text(
               "\$${data.price}",
               style: StylesTextApp.textStyle12.copyWith(
@@ -54,19 +54,14 @@ class ItemProduce extends StatelessWidget {
           alignment: Alignment.center,
           errorWidget: (context, url, error) => Text(
             "invalid Error",
-            style: StylesTextApp.textStyle14.copyWith(
-              color: ColorApp.red60,
-            ),
+            style: StylesTextApp.textStyle14.copyWith(color: ColorApp.red60),
           ),
           imageUrl: data.images!.first,
           height: 250.h,
           fit: BoxFit.contain,
-          progressIndicatorBuilder: (context, url, progress) =>
-              const Center(
-                child: CircularProgressIndicator(
-                  color: ColorApp.dark50,
-                ),
-              ),
+          progressIndicatorBuilder: (context, url, progress) => const Center(
+            child: CircularProgressIndicator(color: ColorApp.dark50),
+          ),
         ),
       ],
     );

@@ -65,11 +65,9 @@ class RouterApp {
       GoRoute(
         path: itemProduce,
         builder: (context, state) {
-         final productsDataModel= state.extra as ProduceData;
-       
+          final productsDataModel = state.extra as ProduceData;
 
-         
-          return HomeProduceView( produceData: productsDataModel,);
+          return HomeProduceView(produceData: productsDataModel);
         },
       ),
     ],
