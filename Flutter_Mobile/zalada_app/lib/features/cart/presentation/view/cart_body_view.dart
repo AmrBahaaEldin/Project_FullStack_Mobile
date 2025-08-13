@@ -7,7 +7,6 @@ import 'package:zalada_app/core/widgets/custom_button_app.dart';
 import 'package:zalada_app/core/widgets/custom_loading_widget.dart';
 import 'package:zalada_app/core/widgets/toast_message_app.dart'
     show ToastMessage;
-import 'package:zalada_app/features/cart/data/model/user_cart_model/cart.dart';
 import 'package:zalada_app/features/cart/manager/logic/cubit/products_cubit.dart';
 import 'package:zalada_app/features/cart/manager/logic/cubit/products_state.dart';
 import 'package:zalada_app/features/cart/manager/logic/showcart/cart_cubit.dart';
@@ -92,7 +91,19 @@ class CartBodyView extends StatelessWidget {
                 return SliverToBoxAdapter(
                   child: CustomButtonApp(
                     isTwins: true,
-                    widget: Text(state.userCartModel.carts!.length.toString()),
+                    widget: Container(
+                      padding: const EdgeInsetsDirectional.all(10),
+                      decoration: BoxDecoration(
+                        color: ColorApp.light100,
+                        borderRadius: BorderRadius.circular(30.r),
+                      ),
+                      child: Text(
+                        state.userCartModel.carts!.length.toString(),
+                        style: StylesTextApp.textStyle14.copyWith(
+                          color: ColorApp.dark100,
+                        ),
+                      ),
+                    ),
                     text: "Checkout",
                     boxColor: ColorApp.blue60,
                   ),

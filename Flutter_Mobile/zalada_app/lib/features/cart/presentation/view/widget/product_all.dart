@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zalada_app/core/constant/color_app.dart';
 import 'package:zalada_app/core/constant/style_app.dart';
 
-import '../../../../home/data/model/home_produces_model/product.dart';
+import '../../../../home/data/model/home_produces_model/product.dart' show Product;
+
+
 
 class ProductAll extends StatelessWidget {
   const ProductAll({required this.data, super.key});

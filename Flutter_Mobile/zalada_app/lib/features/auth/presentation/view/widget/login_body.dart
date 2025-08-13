@@ -22,6 +22,7 @@ class LoginBody extends StatelessWidget {
       child: ModalProgressHUD(
         inAsyncCall: context.watch<LoginCubit>().state is LoginLoading,
         child: SingleChildScrollView(
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
             child: Form(
