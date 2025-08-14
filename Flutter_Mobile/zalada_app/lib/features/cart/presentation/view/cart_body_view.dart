@@ -1,20 +1,20 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zalada_app/core/constant/color_app.dart';
-import 'package:zalada_app/core/constant/style_app.dart';
-import 'package:zalada_app/core/widgets/custom_button_app.dart';
-import 'package:zalada_app/core/widgets/custom_loading_widget.dart';
-import 'package:zalada_app/core/widgets/toast_message_app.dart'
-    show ToastMessage;
-import 'package:zalada_app/features/cart/manager/logic/cubit/products_cubit.dart';
-import 'package:zalada_app/features/cart/manager/logic/cubit/products_state.dart';
-import 'package:zalada_app/features/cart/manager/logic/showcart/cart_cubit.dart';
-import 'package:zalada_app/features/cart/manager/logic/showcart/cart_state.dart';
 import 'package:zalada_app/features/cart/presentation/view/widget/cart_empty.dart';
+import 'package:zalada_app/features/cart/presentation/view/widget/cart_list_product.dart';
 import 'package:zalada_app/features/cart/presentation/view/widget/product_list.dart';
 
-import 'widget/cart_list_product.dart';
+import '../../../../core/constant/color_app.dart';
+import '../../../../core/constant/style_app.dart';
+import '../../../../core/widgets/custom_button_app.dart';
+import '../../../../core/widgets/custom_loading_widget.dart';
+import '../../../../core/widgets/toast_message_app.dart';
+import '../../manager/logic/showProducts/products_show_cubit.dart';
+import '../../manager/logic/showProducts/products_show_state.dart';
+
+import '../../manager/logic/showcart/cart_cubit.dart';
+import '../../manager/logic/showcart/cart_state.dart';
 
 class CartBodyView extends StatelessWidget {
   const CartBodyView({super.key});
@@ -67,9 +67,9 @@ class CartBodyView extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: 16.h)),
-          BlocBuilder<ProductsCubit, ProductsState>(
+          BlocBuilder<ProductsShowCubit, ProductsShowState>(
             builder: (context, state) {
-              if (state is ProductsLoaded) {
+              if (state is ProductsShowLoaded) {
                 return SliverToBoxAdapter(
                   child: SizedBox(
                     height: 200.h,

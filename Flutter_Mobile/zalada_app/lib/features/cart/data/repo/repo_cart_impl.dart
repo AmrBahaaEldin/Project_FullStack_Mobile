@@ -6,10 +6,14 @@ import 'package:zalada_app/core/utils/errors/failure.dart';
 import 'package:zalada_app/features/cart/data/model/user_cart_model/user_cart_model.dart';
 import 'package:zalada_app/features/cart/data/repo/repo_cart.dart';
 import 'package:zalada_app/features/home/data/model/home_produces_model/home_produces_model.dart';
+import 'package:zalada_app/features/product/data/model/CartAddModel.dart';
+import 'package:zalada_app/features/product/data/model/cart_add_input_model.dart';
 
 class RepoCartImpl implements RepoCart {
   final ApiService apiService;
+
   RepoCartImpl({required this.apiService});
+
   @override
   Future<Either<Failure, UserCartModel>> fetchCartUser(int userId) async {
     try {
@@ -27,16 +31,35 @@ class RepoCartImpl implements RepoCart {
 
   @override
   Future<Either<Failure, HomeProducesModel>> fetchAllProducts() async {
-  try {
- final response = await  apiService.get(
-      endpoint: ApiKeyApp.endPointAllProducts,
-      baseUrl: ApiKeyApp.baseUrlKey,
-    );
-    return (right(HomeProducesModel.fromJson(response.data)));
-} on DioException catch (e) {
-  return (left(ServerFailure.fromDioException(e)));
-} catch (e) {
-  return (left(ServerFailure(e.toString())));
-}
+    try {
+      final response = await apiService.get(
+        endpoint: ApiKeyApp.endPointAllProducts,
+        baseUrl: ApiKeyApp.baseUrlKey,
+      );
+      return (right(HomeProducesModel.fromJson(response.data)));
+    } on DioException catch (e) {
+      return (left(ServerFailure.fromDioException(e)));
+    } catch (e) {
+      return (left(ServerFailure(e.toString())));
+    }
   }
+
+  @override
+  Future<Either<Failure, CartAddModel>> fetchAddCart(
+      CartAddInputModel cartAddInputModel) async {
+    try {
+      final response = await apiService.post(
+          endPoint: ApiKeyApp.endPointAddCart,
+          baseurl: ApiKeyApp.baseUrlKey,
+          data: cartAddInputModel.toJson());
+      return (right(CartAddModel.fromJson(response.data)));
+    } on DioException catch (e) {
+      return (left(ServerFailure.fromDioException(e)));
+    }
+    catch (e) {
+      return (left(ServerFailure(e.toString())));
+    }
+  }
+
+
 }

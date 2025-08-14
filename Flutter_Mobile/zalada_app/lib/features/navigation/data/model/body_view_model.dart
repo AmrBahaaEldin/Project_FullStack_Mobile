@@ -6,8 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zalada_app/core/utils/api_service.dart';
 import 'package:zalada_app/core/utils/cache_db_app.dart';
 import 'package:zalada_app/features/cart/data/repo/repo_cart_impl.dart';
-import 'package:zalada_app/features/cart/manager/logic/cubit/products_cubit.dart';
 import 'package:zalada_app/features/cart/manager/logic/showcart/cart_cubit.dart';
+import 'package:zalada_app/features/cart/manager/logic/showproducts/products_show_cubit.dart' hide ProductsShowCubit;
 import 'package:zalada_app/features/cart/presentation/view/cart_body_view.dart';
 import 'package:zalada_app/features/home/data/repo/repo_home_impl.dart';
 import 'package:zalada_app/features/home/manager/logic/produce/home_cubit.dart';
@@ -19,6 +19,8 @@ import 'package:zalada_app/features/profile/presentation/view/profile_body_view.
 import 'package:zalada_app/features/search/data/repo/search_repo_impl.dart';
 import 'package:zalada_app/features/search/manager/logic/cubit/search_cubit.dart';
 import 'package:zalada_app/features/search/presentation/view/search_body_view.dart';
+
+import '../../../cart/manager/logic/showProducts/products_show_cubit.dart';
 
 class BodyViewModel {
   BodyViewModel._();
@@ -46,7 +48,7 @@ class BodyViewModel {
               CartCubit(RepoCartImpl(apiService: ApiService(Dio())))
                 ..fetchCart(),
         ),
-        BlocProvider(create: (context) => ProductsCubit(RepoCartImpl(apiService: ApiService(Dio())))..fetchAllProducts()),
+        BlocProvider(create: (context) => ProductsShowCubit(RepoCartImpl(apiService: ApiService(Dio())))..fetchAllProducts()),
        
       ],
       child: const CartBodyView(),
