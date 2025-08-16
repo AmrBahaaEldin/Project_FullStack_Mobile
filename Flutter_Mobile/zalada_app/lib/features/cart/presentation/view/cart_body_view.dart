@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zalada_app/features/cart/presentation/view/widget/cart_empty.dart';
 import 'package:zalada_app/features/cart/presentation/view/widget/cart_list_product.dart';
 import 'package:zalada_app/features/cart/presentation/view/widget/product_list.dart';
+import 'package:zalada_app/features/product/manager/logic/cart_add_cubit.dart';
+import 'package:zalada_app/features/product/manager/logic/cart_add_state.dart';
 
 import '../../../../core/constant/color_app.dart';
 import '../../../../core/constant/style_app.dart';
@@ -27,7 +29,7 @@ class CartBodyView extends StatelessWidget {
         slivers: [
           BlocConsumer<CartCubit, CartState>(
             listener: (context, state) {
-              if (state is CartLoaded) {
+              if (state is CartAddLoaded) {
                 ToastMessage.showToast(
                   backGroundColor: ColorApp.green100,
                   message: "Fetched Cart",
@@ -43,7 +45,7 @@ class CartBodyView extends StatelessWidget {
             builder: (context, state) {
               if (state is CartLoaded &&
                   state.userCartModel.carts!.isNotEmpty) {
-                return CartListproduct(
+                return CartListProduct(
                   itemCount: state.userCartModel.carts![0].products!.length,
                   cart: state.userCartModel.carts![0].products!,
                 );
@@ -98,7 +100,7 @@ class CartBodyView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30.r),
                       ),
                       child: Text(
-                        state.userCartModel.carts!.length.toString(),
+                        state.userCartModel.carts![0].totalProducts.toString(),
                         style: StylesTextApp.textStyle14.copyWith(
                           color: ColorApp.dark100,
                         ),

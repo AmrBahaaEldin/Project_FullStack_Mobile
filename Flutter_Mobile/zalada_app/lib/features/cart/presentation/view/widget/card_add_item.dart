@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zalada_app/core/constant/color_app.dart';
 import 'package:zalada_app/core/constant/style_app.dart';
 import 'package:zalada_app/features/cart/presentation/view/widget/counter_item_product.dart';
+import 'package:zalada_app/features/product/data/model/CartAddModel.dart';
 
 import '../../../data/model/user_cart_model/product.dart';
 

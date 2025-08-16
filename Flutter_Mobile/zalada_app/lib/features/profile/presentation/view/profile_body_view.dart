@@ -7,6 +7,7 @@ import 'package:zalada_app/core/constant/router_app.dart';
 import 'package:zalada_app/core/constant/style_app.dart';
 import 'package:zalada_app/core/utils/cache_db_app.dart';
 import 'package:zalada_app/core/widgets/custom_loading_widget.dart';
+import 'package:zalada_app/features/profile/data/model/account_setting_nav.dart';
 import 'package:zalada_app/features/profile/data/model/profile_setting_model.dart';
 import 'package:zalada_app/features/profile/data/model/profile_settings_data_model.dart';
 import 'package:zalada_app/features/profile/manager/logic/profile_logic/profile_cubit.dart';
@@ -97,6 +98,9 @@ class ProfileBodyView extends StatelessWidget {
           itemCount: ProfileSettingsDataModel.profileSettings.length,
           itemBuilder: (context, index) {
             return ProfileItem(
+              trailing: IconButton(icon: const Icon(Icons.arrow_forward),onPressed: () {
+                GoRouter.of(context).push(AccountSettingNav.accountSetting[index]);
+              },) ,
               profileAccountSettings:
                   ProfileSettingsDataModel.profileSettings[index],
             );
@@ -127,13 +131,16 @@ class ProfileBodyView extends StatelessWidget {
             profileAccountSettings: ProfileSettingsModel(
               title: "logout",
               iconLeading: const Icon(Icons.logout, color: ColorApp.red100),
-              iconTrailing: const Icon(
-                Icons.arrow_forward,
-                color: ColorApp.red100,
+              iconTrailing: IconButton(
+                onPressed: () {
+                  checkRemove(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_forward,
+                  color: ColorApp.red100,
+                ),
               ),
-              onPressed: () {
-                checkRemove(context);
-              },
+
             ),
           ),
         ),

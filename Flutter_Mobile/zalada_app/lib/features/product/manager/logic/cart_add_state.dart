@@ -15,4 +15,5 @@ final class CartAddFailure extends CartAddState {
   final Failure failure;
   CartAddFailure({required this.failure});
 }
+final class QuantityProduct extends CartAddState {}
 

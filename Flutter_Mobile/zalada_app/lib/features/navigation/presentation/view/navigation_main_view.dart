@@ -46,7 +46,6 @@ class NavigationMainView extends StatelessWidget {
               tabs: [
                 const GButton(icon: Icons.home, text: 'Home'),
                 const GButton(icon: Icons.search, text: 'Browse'),
-                const GButton(icon: Icons.favorite, text: 'Wishlist'),
                 const GButton(icon: Icons.local_mall, text: 'Cart'),
                 const GButton(icon: Icons.person, text: 'Profile'),
               ],

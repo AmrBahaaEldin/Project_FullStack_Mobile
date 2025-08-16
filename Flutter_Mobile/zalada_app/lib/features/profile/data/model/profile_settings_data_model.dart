@@ -8,21 +8,19 @@ class ProfileSettingsDataModel {
       title: "Address",
       iconLeading: const Icon(Icons.fmd_good),
       iconTrailing: const Icon(Icons.arrow_forward),
-      onPressed: () {},
+
     ),
     ProfileSettingsModel(
       title: "Payment Method",
       iconLeading: const Icon(Icons.credit_card),
       iconTrailing: const Icon(Icons.arrow_forward),
-      onPressed: () {
-        debugPrint("GoRouter.of(context).push('/payment-method-screen');");
-      },
+
     ),
     ProfileSettingsModel(
       title: "Account Security",
       iconLeading: const Icon(Icons.gpp_good),
       iconTrailing: const Icon(Icons.arrow_forward),
-      onPressed: () {},
+
     ),
   ];
 }

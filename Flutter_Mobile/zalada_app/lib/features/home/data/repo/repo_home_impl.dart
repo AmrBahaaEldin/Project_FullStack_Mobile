@@ -20,8 +20,6 @@ class RepoHomeIm implements RepoHome {
         endpoint: ApiKeyApp.endPointCategoryProduce + categoryProduce,
         baseUrl: ApiKeyApp.baseUrlKey,
       );
-      print("_____________________");
-      print(response.data);
       return (right(HomeProducesModel.fromJson(response.data)));
     } on DioException catch (e) {
       return (left(ServerFailure.fromDioException(e)));

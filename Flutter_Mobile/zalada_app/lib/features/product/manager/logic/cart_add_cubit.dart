@@ -16,4 +16,23 @@ class CartAddCubit extends Cubit<CartAddState> {
       (data) => emit(CartAddLoaded(cartAddModel: data)),
     );
   }
+
+  int quantity = 1;
+
+  void quantityProduct(String typeQuantity) {
+    switch (typeQuantity) {
+      case "plus":
+        quantity++;
+        emit(QuantityProduct());
+        break;
+      case "minus":
+        if (quantity > 1) {
+         quantity--;
+        } else {
+          quantity = 1;
+        }
+        emit(QuantityProduct());
+        break;
+    }
+  }
 }
