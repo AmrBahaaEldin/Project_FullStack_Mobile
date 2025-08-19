@@ -18,8 +18,6 @@ final class PaymentCreateFailure extends PaymentCreateState {
 
 final class PaymentCreateSelected extends PaymentCreateState {}
 
-
-
 final class PaymentCreateSelectedDate extends PaymentCreateState {
   final DateTime dateTime;
 

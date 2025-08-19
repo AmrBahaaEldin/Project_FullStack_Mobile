@@ -26,7 +26,7 @@ class HomeProduceView extends StatelessWidget {
   Widget build(BuildContext context) {
     final double afterdiscount =
         produceData.dataItemProduce.price! -
-            produceData.dataItemProduce.discountPercentage!;
+        produceData.dataItemProduce.discountPercentage!;
     return BlocListener<CartAddCubit, CartAddState>(
       listener: (context, state) {
         if (state is CartAddLoaded && state.cartAddModel.products!.isNotEmpty) {
@@ -94,17 +94,28 @@ class HomeProduceView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
                       children: [
-                         CounterItemProduct(icon: Icons.remove,
-                         onPressed: () {
-                           context.read<CartAddCubit>().quantityProduct('minus');
-                         },),
+                        CounterItemProduct(
+                          icon: Icons.remove,
+                          onPressed: () {
+                            context.read<CartAddCubit>().quantityProduct(
+                              'minus',
+                            );
+                          },
+                        ),
                         SizedBox(width: 15.w),
-                         Text("${context.watch<CartAddCubit>().quantity}", style: StylesTextApp.textStyle14),
+                        Text(
+                          "${context.watch<CartAddCubit>().quantity}",
+                          style: StylesTextApp.textStyle14,
+                        ),
                         SizedBox(width: 15.w),
-                         CounterItemProduct(icon: Icons.add,onPressed: () {
-                           context.read<CartAddCubit>().quantityProduct("plus");
-
-                    },),
+                        CounterItemProduct(
+                          icon: Icons.add,
+                          onPressed: () {
+                            context.read<CartAddCubit>().quantityProduct(
+                              "plus",
+                            );
+                          },
+                        ),
                       ],
                     );
                   },
@@ -129,7 +140,9 @@ class HomeProduceView extends StatelessWidget {
                           products: [
                             ProductsAddModel(
                               idProduct: produceData.dataItemProduce.id!,
-                              quantityProduct:context.read<CartAddCubit>().quantity,
+                              quantityProduct: context
+                                  .read<CartAddCubit>()
+                                  .quantity,
                             ),
                           ],
                         ),

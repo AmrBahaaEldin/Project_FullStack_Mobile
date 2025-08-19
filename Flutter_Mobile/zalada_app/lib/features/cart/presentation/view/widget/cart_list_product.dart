@@ -7,15 +7,14 @@ import '../../../data/model/user_cart_model/product.dart';
 
 class CartListProduct extends StatelessWidget {
   const CartListProduct({required this.cart, super.key, this.itemCount});
- final int? itemCount;
- final List<Product> cart;
+  final int? itemCount;
+  final List<Product> cart;
 
   @override
   Widget build(BuildContext context) {
     return SliverList.separated(
       itemCount: itemCount,
-      itemBuilder: (context, index) =>
-          CartAddItem(cart: cart[index]),
+      itemBuilder: (context, index) => CartAddItem(cart: cart[index]),
       separatorBuilder: (context, index) => SizedBox(height: 16.h),
     );
   }

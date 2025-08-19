@@ -7,11 +7,15 @@ class ApiService {
     required String endPoint,
     required String baseurl,
     required Object data,
+    String ? token,
   }) async {
     final response = await dio.post(
       baseurl + endPoint,
       data: data,
-      options: Options(contentType: Headers.jsonContentType),
+      options: Options(
+        contentType: Headers.jsonContentType,
+        headers: {"Authorization": "Bearer $token"},
+        ),
     );
 
     return response;

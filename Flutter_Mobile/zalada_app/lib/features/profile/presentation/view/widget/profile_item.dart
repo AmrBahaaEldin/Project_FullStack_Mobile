@@ -3,7 +3,11 @@ import 'package:zalada_app/core/constant/style_app.dart';
 import 'package:zalada_app/features/profile/data/model/profile_setting_model.dart';
 
 class ProfileItem extends StatelessWidget {
-  const ProfileItem({required this.profileAccountSettings, super.key, this.trailing});
+  const ProfileItem({
+    required this.profileAccountSettings,
+    super.key,
+    this.trailing,
+  });
   final ProfileSettingsModel profileAccountSettings;
   final Widget? trailing;
 
@@ -17,7 +21,7 @@ class ProfileItem extends StatelessWidget {
           color: profileAccountSettings.color,
         ),
       ),
-      trailing:trailing??profileAccountSettings.iconTrailing,
+      trailing: trailing ?? profileAccountSettings.iconTrailing,
       // trailing: Icon(
     );
   }

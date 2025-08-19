@@ -98,9 +98,14 @@ class ProfileBodyView extends StatelessWidget {
           itemCount: ProfileSettingsDataModel.profileSettings.length,
           itemBuilder: (context, index) {
             return ProfileItem(
-              trailing: IconButton(icon: const Icon(Icons.arrow_forward),onPressed: () {
-                GoRouter.of(context).push(AccountSettingNav.accountSetting[index]);
-              },) ,
+              trailing: IconButton(
+                icon: const Icon(Icons.arrow_forward),
+                onPressed: () {
+                  GoRouter.of(
+                    context,
+                  ).push(AccountSettingNav.accountSetting[index]);
+                },
+              ),
               profileAccountSettings:
                   ProfileSettingsDataModel.profileSettings[index],
             );
@@ -135,12 +140,8 @@ class ProfileBodyView extends StatelessWidget {
                 onPressed: () {
                   checkRemove(context);
                 },
-                icon: const Icon(
-                  Icons.arrow_forward,
-                  color: ColorApp.red100,
-                ),
+                icon: const Icon(Icons.arrow_forward, color: ColorApp.red100),
               ),
-
             ),
           ),
         ),

@@ -9,12 +9,6 @@ class ProfileAppBarView extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back),
-        onPressed: () {
-          GoRouter.of(context).pop();
-        },
-      ),
       centerTitle: true,
       actions: [
         IconButton(

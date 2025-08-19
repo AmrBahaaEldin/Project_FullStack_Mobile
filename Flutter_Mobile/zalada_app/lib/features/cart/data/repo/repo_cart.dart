@@ -8,5 +8,7 @@ import 'package:zalada_app/features/product/data/model/cart_add_input_model.dart
 abstract class RepoCart {
   Future<Either<Failure, UserCartModel>> fetchCartUser(int userId);
   Future<Either<Failure, HomeProducesModel>> fetchAllProducts();
-  Future<Either<Failure,CartAddModel>> fetchAddCart(CartAddInputModel cartAddInputModel);
+  Future<Either<Failure, CartAddModel>> fetchAddCart(
+    CartAddInputModel cartAddInputModel,
+  );
 }

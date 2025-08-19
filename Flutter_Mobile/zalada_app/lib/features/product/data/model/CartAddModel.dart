@@ -8,13 +8,14 @@
 
 class CartAddModel {
   CartAddModel({
-      num? id, 
-      List<Products>? products, 
-      num? total, 
-      num? discountedTotal, 
-      num? userId, 
-      num? totalProducts, 
-      num? totalQuantity,}){
+    num? id,
+    List<Products>? products,
+    num? total,
+    num? discountedTotal,
+    num? userId,
+    num? totalProducts,
+    num? totalQuantity,
+  }) {
     _id = id;
     _products = products;
     _total = total;
@@ -22,7 +23,7 @@ class CartAddModel {
     _userId = userId;
     _totalProducts = totalProducts;
     _totalQuantity = totalQuantity;
-}
+  }
 
   CartAddModel.fromJson(dynamic json) {
     _id = json['id'];
@@ -67,7 +68,6 @@ class CartAddModel {
     map['totalQuantity'] = _totalQuantity;
     return map;
   }
-
 }
 
 /// id : 94
@@ -81,14 +81,15 @@ class CartAddModel {
 
 class Products {
   Products({
-      num? id, 
-      String? title, 
-      num? price, 
-      num? quantity, 
-      num? total, 
-      num? discountPercentage, 
-      num? discountedPrice, 
-      String? thumbnail,}){
+    num? id,
+    String? title,
+    num? price,
+    num? quantity,
+    num? total,
+    num? discountPercentage,
+    num? discountedPrice,
+    String? thumbnail,
+  }) {
     _id = id;
     _title = title;
     _price = price;
@@ -97,7 +98,7 @@ class Products {
     _discountPercentage = discountPercentage;
     _discountedPrice = discountedPrice;
     _thumbnail = thumbnail;
-}
+  }
 
   Products.fromJson(dynamic json) {
     _id = json['id'];
@@ -139,5 +140,4 @@ class Products {
     map['thumbnail'] = _thumbnail;
     return map;
   }
-
 }

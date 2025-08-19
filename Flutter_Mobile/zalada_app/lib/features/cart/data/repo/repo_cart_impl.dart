@@ -46,20 +46,19 @@ class RepoCartImpl implements RepoCart {
 
   @override
   Future<Either<Failure, CartAddModel>> fetchAddCart(
-      CartAddInputModel cartAddInputModel) async {
+    CartAddInputModel cartAddInputModel,
+  ) async {
     try {
       final response = await apiService.post(
-          endPoint: ApiKeyApp.endPointAddCart,
-          baseurl: ApiKeyApp.baseUrlKey,
-          data: cartAddInputModel.toJson());
+        endPoint: ApiKeyApp.endPointAddCart,
+        baseurl: ApiKeyApp.baseUrlKey,
+        data: cartAddInputModel.toJson(),
+      );
       return (right(CartAddModel.fromJson(response.data)));
     } on DioException catch (e) {
       return (left(ServerFailure.fromDioException(e)));
-    }
-    catch (e) {
+    } catch (e) {
       return (left(ServerFailure(e.toString())));
     }
   }
-
-
 }

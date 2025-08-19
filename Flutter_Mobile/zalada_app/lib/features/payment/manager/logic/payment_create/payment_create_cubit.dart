@@ -1,8 +1,6 @@
-
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:zalada_app/features/payment/manager/logic/payment_create_state.dart';
+import 'package:zalada_app/features/payment/manager/logic/payment_create/payment_create_state.dart';
 
 class PaymentCreateCubit extends Cubit<PaymentCreateState> {
   PaymentCreateCubit() : super(PaymentCreateInitial());

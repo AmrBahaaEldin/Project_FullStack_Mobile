@@ -27,7 +27,7 @@ class CartAddCubit extends Cubit<CartAddState> {
         break;
       case "minus":
         if (quantity > 1) {
-         quantity--;
+          quantity--;
         } else {
           quantity = 1;
         }

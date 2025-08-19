@@ -9,8 +9,8 @@ import 'package:zalada_app/core/constant/style_app.dart';
 import 'package:zalada_app/core/widgets/custom_button_app.dart';
 import 'package:zalada_app/core/widgets/custom_text_field_app.dart';
 import 'package:zalada_app/core/widgets/toast_message_app.dart';
-import 'package:zalada_app/features/payment/manager/logic/payment_create_cubit.dart';
-import 'package:zalada_app/features/payment/manager/logic/payment_create_state.dart';
+import 'package:zalada_app/features/payment/manager/logic/payment_create/payment_create_cubit.dart';
+import 'package:zalada_app/features/payment/manager/logic/payment_create/payment_create_state.dart';
 
 class PaymentCreateView extends StatelessWidget {
   const PaymentCreateView({super.key});

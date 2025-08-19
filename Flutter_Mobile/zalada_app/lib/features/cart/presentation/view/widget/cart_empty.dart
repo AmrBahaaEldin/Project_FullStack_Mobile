@@ -4,7 +4,6 @@ import 'package:zalada_app/core/constant/color_app.dart';
 import 'package:zalada_app/core/constant/image_app.dart';
 import 'package:zalada_app/core/constant/style_app.dart';
 
-
 class CartEmpty extends StatelessWidget {
   const CartEmpty({super.key});
 

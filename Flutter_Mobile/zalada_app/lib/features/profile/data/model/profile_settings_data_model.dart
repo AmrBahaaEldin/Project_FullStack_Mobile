@@ -8,19 +8,16 @@ class ProfileSettingsDataModel {
       title: "Address",
       iconLeading: const Icon(Icons.fmd_good),
       iconTrailing: const Icon(Icons.arrow_forward),
-
     ),
     ProfileSettingsModel(
       title: "Payment Method",
       iconLeading: const Icon(Icons.credit_card),
       iconTrailing: const Icon(Icons.arrow_forward),
-
     ),
     ProfileSettingsModel(
       title: "Account Security",
       iconLeading: const Icon(Icons.gpp_good),
       iconTrailing: const Icon(Icons.arrow_forward),
-
     ),
   ];
 }

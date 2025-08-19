@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:zalada_app/features/auth/presentation/view/register_view.dart';
 import 'package:zalada_app/features/intro/presentation/view/onboarding_view.dart';
 import 'package:zalada_app/features/navigation/presentation/view/navigation_main_view.dart';
-import 'package:zalada_app/features/payment/manager/logic/payment_create_cubit.dart';
+import 'package:zalada_app/features/payment/manager/logic/payment_create/payment_create_cubit.dart';
 import 'package:zalada_app/features/product/data/model/products_data.dart';
 import 'package:zalada_app/features/product/manager/logic/cart_add_cubit.dart';
 import 'package:zalada_app/features/product/presentation/view/home_produce_view.dart';
@@ -43,7 +43,7 @@ class RouterApp {
           return CustomTransitionPage(
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) =>
-                FadeTransition(opacity: animation, child: child),
+                    FadeTransition(opacity: animation, child: child),
             transitionDuration: const Duration(milliseconds: 1000),
             child: const LoginView(),
           );
@@ -64,13 +64,13 @@ class RouterApp {
       GoRoute(
         path: editProfile,
         builder: (context, state) => const ProfileEditView(),
-      ), GoRoute(
+      ),
+      GoRoute(
         path: paymentCreate,
-        builder: (context, state) =>
-            BlocProvider(
-              create: (context) => PaymentCreateCubit(),
-              child: const PaymentCreateView(),
-            ),
+        builder: (context, state) => BlocProvider(
+          create: (context) => PaymentCreateCubit(),
+          child: const PaymentCreateView(),
+        ),
       ),
       GoRoute(
         path: itemProduce,

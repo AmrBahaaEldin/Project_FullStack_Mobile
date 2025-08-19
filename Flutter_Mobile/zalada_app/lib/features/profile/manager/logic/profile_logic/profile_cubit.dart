@@ -10,7 +10,6 @@ class ProfileCubit extends Cubit<ProfileState> {
   void fecthDataProfile({required String author}) async {
     final data = await repo.getProfile(author);
     data.fold((failure) => emit(ProfileFailure(failure: failure)), (data) {
-      
       emit(ProfileLoaded(profileShow: data));
 
       debugPrint(
