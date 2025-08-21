@@ -36,7 +36,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
               },
               enableInfiniteScroll: false,
               scrollPhysics: const NeverScrollableScrollPhysics(),
-              height: 400.h,
+              height: 500.h,
 
               viewportFraction: 1.0,
 

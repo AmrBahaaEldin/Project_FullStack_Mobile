@@ -18,9 +18,9 @@ import '../utils/api_service.dart';
 class RouterApp {
   RouterApp._();
 
-  static const String onBoarding = '/onBoarding';
+  static const String onBoarding = '/';
   static const String register = '/register';
-  static const String login = '/';
+  static const String login = '/login';
   static const String mainNavigation = '/mainNavigation';
   static const String itemProduce = '/itemproduce';
   static const String editProfile = '/editProfile';

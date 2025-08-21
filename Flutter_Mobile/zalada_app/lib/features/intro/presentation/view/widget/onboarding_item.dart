@@ -16,11 +16,15 @@ class OnboardingItem extends StatelessWidget {
       children: [
         SizedBox(height: 250.h, child: SvgPicture.asset(onBoardingModel.image)),
         SizedBox(height: 40.h),
-        Text(onBoardingModel.title, style: StylesTextApp.textStyle32),
+        Text(onBoardingModel.title, style: StylesTextApp.textStyle24),
         SizedBox(height: 16.h),
-        Text(
-          onBoardingModel.subTitle,
-          style: StylesTextApp.textStyle16.copyWith(color: ColorApp.dark25),
+        Expanded(
+          child: Text(
+            maxLines: 500,
+            overflow: TextOverflow.ellipsis,
+            onBoardingModel.subTitle,
+            style: StylesTextApp.textStyle14.copyWith(color: ColorApp.dark25),
+          ),
         ),
       ],
     );
