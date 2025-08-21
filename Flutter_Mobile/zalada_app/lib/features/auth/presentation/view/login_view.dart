@@ -29,8 +29,8 @@ class LoginView extends StatelessWidget {
               key: "accessToken",
               value: state.data.accessToken,
             );
+            CacheApp.saveData(key: "userName", value: state.data.username);
             CacheApp.saveData(key: "UserId", value: state.data.id);
-            debugPrint(CacheApp.getData(key: "accessToken"));
             controllerClear(context);
 
             GoRouter.of(context).go(RouterApp.mainNavigation);

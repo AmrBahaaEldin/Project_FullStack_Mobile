@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:fpdart/src/either.dart';
+import 'package:fpdart/fpdart.dart' show Either, Right, Left;
 import 'package:zalada_app/core/utils/errors/failure.dart';
 import 'package:zalada_app/core/utils/strip_service.dart';
-import 'package:zalada_app/features/payment/data/model/payment_intent_input_model.dart';
 import 'package:zalada_app/features/payment/data/repo/repo_create_payment.dart';
 
 class RepoCreatePaymentImpl implements RepoCreatePayment {
@@ -11,11 +10,13 @@ class RepoCreatePaymentImpl implements RepoCreatePayment {
   RepoCreatePaymentImpl({required this.stripService});
   @override
   Future<Either<Failure, void>> makePayment({
-    required PaymentIntentInputModel paymentIntentInputModel,
+    required String customerName,
+    required String amount,
   }) async {
     try {
       await stripService.makePayment(
-        paymentIntentInputModel: paymentIntentInputModel,
+        amount: amount,
+        customerName:customerName, 
       );
       return const Right(null);
     } on DioException catch (e) {

@@ -153,6 +153,8 @@ class ProfileBodyView extends StatelessWidget {
 Future<void> checkRemove(BuildContext context) async {
   await CacheApp.removeData(key: "accessToken");
   await CacheApp.removeData(key: "UserId");
+  await CacheApp.removeData(key: "userName");
+  await CacheApp.removeData(key: "customerId");
   if (!context.mounted) {
     return;
   }

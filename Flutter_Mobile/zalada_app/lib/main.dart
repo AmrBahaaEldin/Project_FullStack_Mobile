@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:zalada_app/core/constant/api_key_app.dart';
 import 'package:zalada_app/core/constant/router_app.dart';
 import 'package:zalada_app/core/utils/bloc_observer.dart';
 import 'package:zalada_app/core/utils/cache_db_app.dart';
@@ -10,6 +11,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   CacheApp.init();
   Bloc.observer = MyBlocObserver();
+  Stripe.publishableKey = ApiKeyApp.publishKey;
   // Initialize service locator
   runApp(const ZaladaApp());
 }
@@ -33,4 +35,3 @@ class ZaladaApp extends StatelessWidget {
     );
   }
 }
-

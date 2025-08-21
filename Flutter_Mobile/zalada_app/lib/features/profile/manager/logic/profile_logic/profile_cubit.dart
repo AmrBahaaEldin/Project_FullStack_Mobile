@@ -12,9 +12,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     data.fold((failure) => emit(ProfileFailure(failure: failure)), (data) {
       emit(ProfileLoaded(profileShow: data));
 
-      debugPrint(
-        "_______________${CacheApp.getData(key: "UserId")}___________________",
-      );
+    
     });
   }
 }

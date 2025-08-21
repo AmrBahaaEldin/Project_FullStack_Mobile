@@ -71,9 +71,7 @@ class Product {
         .toList(),
     returnPolicy: json['returnPolicy'] as String?,
     minimumOrderQuantity: json['minimumOrderQuantity'] as int?,
-    meta: json['meta'] == null
-        ? null
-        : Meta.fromJson(json['meta'] as Map<String, dynamic>),
+
     tags: (json['tags'] as List?)?.cast<String>(),
     images: (json['images'] as List?)?.cast<String>(),
     thumbnail: json['thumbnail'] as String?,

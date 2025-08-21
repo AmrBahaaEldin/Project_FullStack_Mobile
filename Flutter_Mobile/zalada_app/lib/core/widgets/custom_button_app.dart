@@ -40,10 +40,13 @@ class CustomButtonApp extends StatelessWidget {
               children: [
                 if (widget != null) widget!,
                 SizedBox(width: 10.w),
-                Text(
-                  text,
-                  style: StylesTextApp.textStyle16.copyWith(
-                    color: textColor ?? ColorApp.light80,
+                TextButton(
+                  onPressed: onPressed,
+                  child: Text(
+                    text,
+                    style: StylesTextApp.textStyle16.copyWith(
+                      color: textColor ?? ColorApp.light80,
+                    ),
                   ),
                 ),
               ],

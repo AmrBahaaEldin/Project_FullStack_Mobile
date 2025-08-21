@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zalada_app/core/utils/cache_db_app.dart';
 import 'package:zalada_app/features/cart/presentation/view/widget/cart_empty.dart';
 import 'package:zalada_app/features/cart/presentation/view/widget/cart_list_product.dart';
 import 'package:zalada_app/features/cart/presentation/view/widget/product_list.dart';
-import 'package:zalada_app/features/product/manager/logic/cart_add_cubit.dart';
+import 'package:zalada_app/features/payment/manager/logic/payment_purchase/cubit/payment_purchase_cubit.dart';
+import 'package:zalada_app/features/payment/manager/logic/payment_purchase/cubit/payment_purchase_state.dart';
 import 'package:zalada_app/features/product/manager/logic/cart_add_state.dart';
 
 import '../../../../core/constant/color_app.dart';
@@ -91,24 +93,51 @@ class CartBodyView extends StatelessWidget {
               if (state is CartLoaded &&
                   state.userCartModel.carts!.isNotEmpty) {
                 return SliverToBoxAdapter(
-                  child: CustomButtonApp(
-                    isTwins: true,
-                    widget: Container(
-                      padding: const EdgeInsetsDirectional.all(10),
-                      decoration: BoxDecoration(
-                        color: ColorApp.light100,
-                        borderRadius: BorderRadius.circular(30.r),
-                      ),
-                      child: Text(
-                        state.userCartModel.carts![0].totalProducts.toString(),
-                        style: StylesTextApp.textStyle14.copyWith(
-                          color: ColorApp.dark100,
+                  child:
+                      BlocListener<PaymentPurchaseCubit, PaymentPurchaseState>(
+                        listener: (context, state) {
+                          if (state is PaymentPurchaseLoaded) {
+                            ToastMessage.showToast(
+                              backGroundColor: ColorApp.green100,
+                              message: "Payment Success",
+                            );
+                          }
+
+                          if (state is PaymentPurchaseFailure) {
+                            ToastMessage.showToast(
+                              backGroundColor: ColorApp.red100,
+                              message: state.failure.errorMessage,
+                            );
+                          }
+                        },
+                        child: CustomButtonApp(
+                          onPressed: () {
+                            context.read<PaymentPurchaseCubit>().makePayment(
+                              amount: (state.userCartModel.carts![0].total!*100).toInt()
+                                  .toString(),
+                              customerName:
+                                  CacheApp.getData(key: "userName"),
+                            );
+                          },
+                          isTwins: true,
+                          widget: Container(
+                            padding: const EdgeInsetsDirectional.all(10),
+                            decoration: BoxDecoration(
+                              color: ColorApp.light100,
+                              borderRadius: BorderRadius.circular(30.r),
+                            ),
+                            child: Text(
+                              state.userCartModel.carts![0].totalProducts!
+                                  .toString(),
+                              style: StylesTextApp.textStyle14.copyWith(
+                                color: ColorApp.dark100,
+                              ),
+                            ),
+                          ),
+                          text: "Checkout",
+                          boxColor: ColorApp.blue60,
                         ),
                       ),
-                    ),
-                    text: "Checkout",
-                    boxColor: ColorApp.blue60,
-                  ),
                 );
               } else {
                 return const SliverToBoxAdapter();

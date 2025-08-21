@@ -32,11 +32,13 @@ class ServerFailure extends Failure {
   }
   factory ServerFailure.formResponse(int statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(
-        response["error"]?["errors"]?[0]?["message"] ?? "An error occurred",
-      );
+      print("_____________________________");
+      print(response);
+      return ServerFailure(response["message"] ?? response["error"]["message"]);
     } else if (statusCode == 404) {
-      return ServerFailure("not found ,please try again later");
+      print("_____________________________");
+      print(response);
+      return ServerFailure(response["error"]["message"]);
     }
     return ServerFailure("Opps There was an error ,please try again later");
   }

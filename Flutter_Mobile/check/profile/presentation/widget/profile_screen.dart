@@ -389,7 +389,11 @@ class CustomItemLeave extends StatelessWidget {
           GestureDetector(
             onTap: () async {
               try {
-                await CacheHelper.removeData(key: 'token');
+               
+                //CacheApp.re(key: "customerId");
+                await CacheApp.removeData(key: 'token');
+                
+
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(

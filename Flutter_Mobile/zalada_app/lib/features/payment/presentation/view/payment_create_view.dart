@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:zalada_app/core/constant/color_app.dart';
 import 'package:zalada_app/core/constant/style_app.dart';

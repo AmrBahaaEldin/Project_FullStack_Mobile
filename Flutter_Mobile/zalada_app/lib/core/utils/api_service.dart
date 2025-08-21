@@ -7,15 +7,20 @@ class ApiService {
     required String endPoint,
     required String baseurl,
     required Object data,
-    String ? token,
+    String? token,
+    String? contentType,
+    String? stripeVersion,
   }) async {
     final response = await dio.post(
       baseurl + endPoint,
       data: data,
       options: Options(
-        contentType: Headers.jsonContentType,
-        headers: {"Authorization": "Bearer $token"},
-        ),
+        contentType: contentType ?? Headers.jsonContentType,
+        headers: {
+          "Authorization": "Bearer $token",
+          "Stripe-Version":stripeVersion,
+          },
+      ),
     );
 
     return response;
